@@ -3,7 +3,7 @@
 **Fecha de consulta:** 21 de octubre de 2026
 **Método:** búsquedas web en español y lectura de fichas públicas (directorios institucionales, guías, agregadores). No se ha contactado con el establecimiento ni con ninguna persona.
 
-> **Aviso de método.** No se ha podido acceder al perfil de Google Business de forma directa: no se localizó una URL de ficha ni un Place ID. Varias páginas devolvieron error 403/429 al abrirse (Tripadvisor, APYME, Infobel, Cybo), por lo que algunos datos proceden de resultados indexados y no de lectura directa de la página. Cada caso se marca como tal.
+> **Aviso de método.** No se ha podido acceder al perfil de Google Business de forma directa: no se localizó una URL de ficha ni un Place ID. Varias páginas devolvieron error 403/429 al abrirse (Tripadvisor, APYME, Infobel, Cybo), por lo que algunos datos proceden de resultados indexados y no de lectura directa. Cada caso se marca como tal.
 
 ## 1. Resumen
 
@@ -14,7 +14,7 @@
 | Tipo de establecimiento (cafetería-bar) | **Confirmado** |
 | Teléfono | **NO confirmado** — tres números distintos publicados |
 | Horarios | **Publicados y coherentes entre sí**, sin confirmación del propietario |
-| Ficha de Google / URL de reseñas | **NO verificada** |
+| Ficha de Google / URL de reseñas | **Existencia probable, identificador NO verificado** |
 | Carta y precios | **NO existe carta publicada** |
 | Logotipo | **NO localizado** |
 | Fotografías con licencia reutilizable | **NINGUNA** |
@@ -42,6 +42,7 @@
 - **Confianza:** alta en el cruce y el municipio; baja en cualquier número de portal.
 - **Discrepancia:** «Manzanedo» vs. «Manzaneda». Se usa **Manzanedo** por ser la forma presente en la fuente institucional y en la mayoría de fichas.
 - **Coordenadas:** existen en una fuente institucional, pero **no se han verificado de forma independiente**. La web **no** las usa: los enlaces de mapa se construyen con la dirección postal.
+- **Comprobación indirecta:** el mapa de Google cargado con la dirección resuelve al local correcto en el cruce de C. Manzanedo con C. Roble (ver §2.6).
 - **Estado:** pendiente de confirmar número de portal y si el acceso principal es por Manzanedo o por Roble.
 
 ### 2.3 Teléfono — discrepancia importante
@@ -54,7 +55,7 @@
 | 619 972 503 | APYME (resultado indexado) | asociación empresarial (no verificado) |
 
 - **Confianza:** media en que esos números estén publicados; **baja** en cuál está activo.
-- **Decisión de diseño:** el teléfono **no se publica como enlace `tel:`**. Se muestra como dato provisional, sin acción de llamada, con aviso de que está pendiente de confirmación. Ver `config.js` → `phone.status = "pending"`.
+- **Decisión de diseño:** el teléfono **no se publica como enlace `tel:`**. Se muestra como dato provisional, sin acción de llamada, con aviso de que está pendiente de confirmación. Ver `js/config.js` → `phone.status = "pending"`.
 - **Estado:** pendiente. Pregunta al propietario incluida en `pendientes-propietario.md`.
 
 ### 2.4 Tipo de establecimiento
@@ -76,15 +77,16 @@
 - **Fuentes:** Turismo Badajoz (https://turismoapps.dip-badajoz.es/empresa/bar-la-senal) y Restaurant Guru (https://es.restaurantguru.com/Cafe-Bar-La-Senal-Don-Benito). SEMTAYR solo confirma el cierre de lunes.
 - **Confianza:** media-alta en que es el horario publicado; media en su vigencia.
 - **Discrepancia:** ninguna real entre las dos fichas completas. Wanderlog separa los tramos de madrugada del día natural, lo que puede leerse como discrepancia pero no lo es.
-- **Estado:** se muestra en la web **con la etiqueta «horario publicado, pendiente de confirmar»**. No se incluye en datos estructurados (ver `docs/pendientes-propietario.md`).
+- **Estado:** se muestra en la web **con la etiqueta «horario publicado, pendiente de confirmar»**. No se incluye en datos estructurados.
 
 ### 2.6 Ficha de Google y reseñas
 
 - **Dato:** existen indicios sólidos de una ficha de Google (Restaurant Guru y Wanderlog reproducen reseñas atribuidas a Google con dirección y teléfono del local), pero **no se ha localizado ni la URL de la ficha ni el Place ID**.
 - **Fuentes:** https://es.restaurantguru.com/Cafe-Bar-La-Senal-Don-Benito · https://wanderlog.com/place/details/12399775/caf%C3%A9-bar-la-se%C3%B1al
 - **Confianza:** media-alta en la existencia de ficha; baja en su identificador.
-- **Decisión de diseño:** el botón de reseñas **abre una búsqueda de Google Maps construida con el nombre y la dirección**, no una ficha. Se acompaña de un aviso visible de que la ficha aún no está verificada. No se muestran valoraciones ni número de reseñas.
-- **Estado:** pendiente.
+- **Comprobación posterior (21/10/2026):** al cargar en la web el mapa incrustado de Google construido con la dirección, este resuelve a una ficha titulada **«Café-Bar La Señal»** en «C. Manzanedo & C. Roble, 06400 Don Benito». Es decir: **la ficha parece existir y estar activa**, y la dirección es la correcta. Lo que sigue sin obtenerse es su **URL directa o Place ID**, que es lo que haría falta para enlazar las reseñas sin pasar por una búsqueda.
+- **Decisión de diseño:** el botón de reseñas **abre una búsqueda de Google Maps construida con el nombre y la dirección**, no una ficha. Se acompaña de un aviso visible de que la ficha aún no está verificada. No se muestran valoraciones ni número de reseñas: la valoración que Google pinta dentro del mapa es contenido de Google, no de esta web.
+- **Estado:** pendiente de que el propietario facilite el enlace de su ficha.
 
 ### 2.7 Redes sociales
 
@@ -118,7 +120,7 @@
 ## 3. Identidad visual
 
 - **Logotipo:** no localizado ningún archivo de marca atribuible. Las publicaciones de APYME muestran el nombre del negocio, pero eso no acredita un logotipo oficial.
-- **Decisión:** la web usa una **identificación tipográfica provisional** (el nombre compuesto en la serif de titulares + un rótulo «propuesta»). No imita ningún logotipo.
+- **Decisión:** la web usa una **identificación tipográfica provisional** (el nombre compuesto en la serif de titulares + un rótulo de propuesta). No imita ningún logotipo.
 - **Colores:** la paleta es una propuesta de diseño, no colores oficiales. Ver `docs/diseno.md`.
 
 ## 4. Riesgos de confusión con homónimos

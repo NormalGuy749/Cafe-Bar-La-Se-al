@@ -26,7 +26,7 @@ window.LA_SENAL = {
     /* La URL de mapas se construye con la dirección postal, no con
        coordenadas: no se han verificado coordenadas propias. */
     mapsQuery:
-      "Café-Bar La Señal, Calle Manzanedo esquina calle Roble, 06400 Don Benito, Badajoz",
+      "Café-Bar La Señal, Calle Manzanedo esquina calle Roble, 06400 Don Benito, Badajoz"
   },
 
   /* ---------- Teléfono ----------
@@ -37,7 +37,7 @@ window.LA_SENAL = {
   phone: {
     display: "924 96 56 69",
     status: "pending", // "pending" | "verified"
-    note: "Publicado en fichas de directorios. Pendiente de confirmar con el local.",
+    note: "Sin confirmar" // la franja de datos ya explica la fuente bajo la rejilla
   },
 
   /* ---------- WhatsApp ----------
@@ -48,7 +48,7 @@ window.LA_SENAL = {
   whatsapp: {
     number: "",
     status: "pending", // "pending" | "verified"
-    message: "Hola, quería preguntar por el bar.",
+    message: "Hola, quería preguntar por el bar."
   },
 
   /* ---------- Reseñas ----------
@@ -58,7 +58,7 @@ window.LA_SENAL = {
   reviews: {
     status: "pending", // "pending" | "verified"
     url: "", // pegar aquí la URL directa de la ficha cuando se verifique
-    note: "La ficha de Google no está verificada: el botón abre una búsqueda con el nombre y la dirección.",
+    note: "La ficha de Google no está verificada: el botón abre una búsqueda con el nombre y la dirección."
   },
 
   /* ---------- Horario ----------
@@ -67,13 +67,13 @@ window.LA_SENAL = {
      el propietario. No se incluye en datos estructurados. */
   hours: {
     status: "published", // "published" | "verified"
-    note: "Horario publicado en fichas públicas. Pendiente de confirmar con el local antes de fiarse.",
+    note: "Horario publicado en fichas públicas, pendiente de confirmar.",
     days: [
       { day: "Lunes", value: "Cerrado" },
       { day: "Martes a jueves", value: "6:30 – 24:00" },
       { day: "Viernes y sábado", value: "6:30 – 1:00" },
-      { day: "Domingo", value: "6:30 – 17:00" },
-    ],
+      { day: "Domingo", value: "6:30 – 17:00" }
+    ]
   },
 
   /* ---------- Carta ----------
@@ -82,31 +82,24 @@ window.LA_SENAL = {
      precio. Para publicar la carta real:
        1. status: "ready"
        2. rellena "categories" con { name, items:[{name, price, note}] }
-     Uso interno de la web; se borra el bloque de "pendiente". */
+     Uso interno de la web; se oculta el bloque de "pendiente". */
   menu: {
     status: "pending", // "pending" | "ready"
     note: "No hay carta publicada del establecimiento. No se han inventado platos ni precios.",
     source:
       "Categorías citadas por la guía del Camino Mozárabe (SEMTAYR) y por APYME Vegas Altas–La Serena.",
     documentedCategories: ["Desayunos y tostadas", "Raciones", "Café y bar"],
-    categories: [],
+    categories: []
   },
 
-  /* ---------- Galería ----------
-     No hay ninguna fotografía con licencia de reutilización
-     documentada. Con "src" vacío se pinta un marcador provisional
-     neutro: nunca una foto de terceros ni una imagen generada.
-     Para sustituir: pon la ruta del archivo en assets/images/ y su
-     texto alternativo real. */
+  /* ---------- Fotografías ----------
+     No hay ninguna foto del local con permiso de uso, así que la web
+     no tiene galería: no se muestran huecos vacíos ni imágenes de
+     otros bares. Cuando existan (ver docs/derechos-imagenes.md), se
+     añade una sección de galería con marcado propio. */
   gallery: {
-    status: "placeholder", // "placeholder" | "ready"
-    items: [
-      { slot: "Fachada", alt: "", src: "", credit: "" },
-      { slot: "Interior", alt: "", src: "", credit: "" },
-      { slot: "La barra", alt: "", src: "", credit: "" },
-      { slot: "Desayuno", alt: "", src: "", credit: "" },
-      { slot: "Detalle", alt: "", src: "", credit: "" },
-    ],
+    status: "pending", // "pending" | "ready"
+    items: []
   },
 
   /* ---------- Mapa ----------
@@ -116,12 +109,12 @@ window.LA_SENAL = {
   map: {
     enabled: true,
     embedBase: "https://maps.google.com/maps",
-    zoom: 17,
+    zoom: 17
   },
 
   /* ---------- Aviso de propuesta ---------- */
   proposal: {
     active: true, // poner false solo cuando el propietario apruebe y la web sea oficial
-    label: "Propuesta de diseño · web no oficial",
-  },
+    label: "Propuesta de diseño · web no oficial"
+  }
 };

@@ -2,8 +2,8 @@
    Café-Bar La Señal — comportamiento
    ------------------------------------------------------------
    Sin dependencias. Todo se lee de js/config.js.
-   Si algo falla, la página queda legible: los textos están en el
-   HTML y los enlaces tienen un destino interno de reserva.
+   Si algo falla, la página sigue siendo legible: los textos están
+   en el HTML y los enlaces tienen un destino interno de reserva.
    ============================================================ */
 (function () {
   "use strict";
@@ -72,55 +72,73 @@
     externalise(reviewsLink);
     reviewsLink.setAttribute(
       "aria-label",
-      "Leer reseñas en Google. " + (verifiedReviews
+      "Buscar opiniones en Google. " + (verifiedReviews
         ? "Abre la ficha del negocio en una pestaña nueva."
         : "Abre una búsqueda de Google Maps en una pestaña nueva.")
     );
     if (reviewsNote) {
       reviewsNote.textContent = verifiedReviews
-        ? "Enlace a la ficha verificada del negocio en Google."
-        : (reviews.note || "La ficha de Google no está verificada.");
+        ? " · abre la ficha del negocio en Google."
+        : " · abre una búsqueda, no la ficha del negocio.";
     }
   }
 
-  /* ---------- Teléfono ---------- */
-  var phoneEl = $("#phone-display");
-  var phoneNote = $("#phone-note");
-  if (phoneEl) {
-    var phone = CONFIG.phone || {};
-    var dial = toDial(phone.display);
-    if (phone.status === "verified" && dial) {
-      var tel = document.createElement("a");
-      tel.href = "tel:+" + dial;
-      tel.textContent = phone.display;
-      tel.className = "contact__phone";
-      phoneEl.replaceWith(tel);
-      if (phoneNote) phoneNote.textContent = "Teléfono confirmado por el establecimiento.";
-    } else if (phoneNote && phone.note) {
-      phoneNote.textContent = phone.note;
+  /* ---------- Teléfono (dos puntos: franja de datos y contacto) ---------- */
+  var phone = CONFIG.phone || {};
+  var phoneDial = toDial(phone.display);
+  var phoneIsVerified = phone.status === "verified" && !!phoneDial;
+
+  var phoneShort = $("#phone-display");
+  var phoneShortNote = $("#phone-note");
+
+  if (phoneShort) {
+    if (phoneIsVerified) {
+      var shortLink = document.createElement("a");
+      shortLink.href = "tel:+" + phoneDial;
+      shortLink.textContent = phone.display;
+      shortLink.className = "fact__value";
+      phoneShort.replaceWith(shortLink);
+      if (phoneShortNote) phoneShortNote.textContent = "Confirmado por el establecimiento";
+    } else if (phoneShortNote && phone.note) {
+      phoneShortNote.textContent = phone.note;
+    }
+  }
+
+  var phoneLong = $("#phone-contact");
+  var phoneLongNote = $("#phone-contact-note");
+
+  if (phoneLong) {
+    if (phoneIsVerified) {
+      var longLink = document.createElement("a");
+      longLink.href = "tel:+" + phoneDial;
+      longLink.textContent = phone.display;
+      longLink.className = "contact__phone";
+      phoneLong.replaceWith(longLink);
+      if (phoneLongNote) {
+        phoneLongNote.textContent = "Puedes llamar directamente desde el móvil.";
+      }
     }
   }
 
   /* ---------- WhatsApp (solo si hay número confirmado) ---------- */
   var wa = CONFIG.whatsapp || {};
   var waSlot = $("#whatsapp-slot");
-  var waStatus = $("#whatsapp-status");
   var waDial = toDial(wa.number);
   if (waSlot && wa.status === "verified" && waDial) {
     var waLink = document.createElement("a");
-    waLink.className = "whatsapp-btn";
+    waLink.className = "btn btn--solid";
     waLink.href = "https://wa.me/" + waDial +
       (wa.message ? "?text=" + encodeURIComponent(wa.message) : "");
     waLink.textContent = "Escribir por WhatsApp";
     externalise(waLink);
     waSlot.appendChild(waLink);
-    if (waStatus) waStatus.textContent = "Número de WhatsApp confirmado por el establecimiento.";
   }
 
   /* ---------- Horario ---------- */
   var hours = CONFIG.hours || {};
   var hoursList = $("#hours-list");
   var hoursBadge = $("#hours-badge");
+
   if (hoursList && Array.isArray(hours.days) && hours.days.length) {
     hoursList.textContent = "";
     hours.days.forEach(function (row) {
@@ -143,16 +161,27 @@
 
   /* ---------- Carta ---------- */
   var menu = CONFIG.menu || {};
-  var menuPending = $("#menu-pending");
+  var menuPanel = $(".menu-panel");
   var menuReady = $("#menu-ready");
   var documented = $("#menu-documented");
 
   if (documented && Array.isArray(menu.documentedCategories)) {
     documented.textContent = "";
-    menu.documentedCategories.forEach(function (name) {
+    menu.documentedCategories.forEach(function (name, index) {
       var li = document.createElement("li");
-      li.className = "chip";
-      li.textContent = name;
+      li.className = "menu-row";
+
+      var num = document.createElement("span");
+      num.className = "menu-row__num";
+      num.setAttribute("aria-hidden", "true");
+      num.textContent = String(index + 1).padStart(2, "0");
+
+      var label = document.createElement("span");
+      label.className = "menu-row__name";
+      label.textContent = name;
+
+      li.appendChild(num);
+      li.appendChild(label);
       documented.appendChild(li);
     });
   }
@@ -204,32 +233,7 @@
       menuReady.appendChild(section);
     });
     menuReady.hidden = false;
-    if (menuPending) menuPending.hidden = true;
-  }
-
-  /* ---------- Galería ---------- */
-  var gallery = CONFIG.gallery || {};
-  if (Array.isArray(gallery.items)) {
-    gallery.items.forEach(function (item) {
-      if (!item.src) return; // sin archivo autorizado: se queda el marcador
-      var box = $('[data-frame="' + item.slot + '"]');
-      if (!box || !box.parentNode) return;
-      var figure = box.parentNode;
-      var img = document.createElement("img");
-      img.src = item.src;
-      img.alt = item.alt || "";
-      img.width = 1200;
-      img.height = 800;
-      img.loading = "lazy";
-      img.decoding = "async";
-      figure.textContent = "";
-      figure.appendChild(img);
-      if (item.credit) {
-        var cap = document.createElement("figcaption");
-        cap.textContent = item.credit;
-        figure.appendChild(cap);
-      }
-    });
+    if (menuPanel) menuPanel.hidden = true;
   }
 
   /* ---------- Menú móvil ---------- */
@@ -289,11 +293,19 @@
         map.removeAttribute("aria-busy");
         if (facade) facade.remove();
         if (mapStatus) mapStatus.textContent = "Mapa de Google cargado.";
+
+        // El botón que tenía el foco desaparece con la fachada: sin esto el
+        // foco cae al body y quien navega con teclado pierde el sitio.
+        map.setAttribute("tabindex", "-1");
+        map.focus({ preventScroll: true });
       });
 
       frame.addEventListener("error", function () {
         map.classList.remove("is-busy");
         map.removeAttribute("aria-busy");
+        // El marco roto no se deja en la página: queda el aviso y el enlace
+        // para abrir el mapa en Google Maps.
+        frame.remove();
         mapButton.disabled = false;
         mapButton.textContent = "Reintentar";
         if (mapStatus) {

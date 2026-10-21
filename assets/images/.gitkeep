@@ -1,0 +1,7 @@
+# Carpeta de imágenes
+
+Vacía a propósito: no hay ninguna fotografía con permiso de reutilización.
+
+Cuando el propietario facilite las suyas, guárdalas aquí (minúsculas, sin acentos,
+`.webp` o `.jpg`, < 200 KB) y rellena `gallery.items` en `js/config.js`.
+Ver `docs/derechos-imagenes.md`.

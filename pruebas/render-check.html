@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<!-- GENERADO por pruebas/build-render-check.mjs desde index.html,
+     css/styles.css, js/config.js y js/main.js. No editar a mano.
+     fuentes: index.html=7ddbac5988f5 cssstyles.css=d7c64b67c520 jsconfig.js=f2a842aa1e46 jsmain.js=f27de2009b93 -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Café-Bar La Señal — cafetería-bar en Don Benito</title>
+<meta name="description" content="Cafetería-bar en la esquina de Manzanedo con Roble, Don Benito (Badajoz). Dirección, horario publicado, cómo llegar y carta pendiente de confirmar.">
+<meta name="theme-color" content="#243B30">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20role%3D%22img%22%20aria-label%3D%22Caf%C3%A9-Bar%20La%20Se%C3%B1al%22%3E%0A%20%20%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23243B30%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M32%2013v38M13%2032h38%22%20stroke%3D%22%23F7F1E6%22%20stroke-width%3D%223.5%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%226.5%22%20fill%3D%22%23B96F43%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+<link rel="canonical" href="https://normalguy749.github.io/Cafe-Bar-La-Se-al/">
+
+<!-- Propuesta no oficial: no debe competir en buscadores con el negocio real.
+    Quitar esta línea cuando el propietario apruebe la web definitiva. -->
+<meta name="robots" content="noindex">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Café-Bar La Señal">
+<meta property="og:title" content="Café-Bar La Señal — Don Benito">
+<meta property="og:description" content="Cafetería-bar en la esquina de Manzanedo con Roble, Don Benito (Badajoz). Cómo llegar y horario publicado.">
+<meta property="og:url" content="https://normalguy749.github.io/Cafe-Bar-La-Se-al/">
+<meta name="twitter:card" content="summary">
+
+<style>
+/* ============================================================
+  Café-Bar La Señal — hoja de estilos
+  Dirección: bar de barrio con carácter.
+  Todos los valores salen del bloque de tokens. Nada suelto.
+   ============================================================ */
+
+/* ---------- 1. Tokens ---------- */
+:root{
+  /* Tipo — una ratio (1.250) */
+  --font-display: "Palatino Linotype","Book Antiqua",Palatino,"Iowan Old Style",Georgia,serif;
+  --font-text: "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+
+  --step--1: 0.875rem;
+  --step-0:  1rem;
+  --step-1:  1.25rem;
+  --step-2:  1.5625rem;
+  --step-3:  1.953rem;
+  --step-4:  2.441rem;
+  --step-5:  3.052rem;
+  --step-6:  3.815rem;
+  --step-7:  4.768rem;
+
+  /* Espacio — base 4px */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-s:   1rem;
+  --space-m:   1.5rem;
+  --space-l:   2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 7rem;
+
+  /* Color */
+  --base:       #F5EBDD;
+  --surface:    #FFFDF8;
+  --paper:      #EFE4D3;
+  --ink:        #282722;
+  --ink-2:      #5A564C;
+  --ink-3:      #6E6859;
+  --line:       #DCD0BC;
+  --green:      #243B30;
+  --green-2:    #1B2D24;
+  --accent:     #B96F43;
+  --accent-ink: #8E4A28;
+  --on-dark:    #F7F1E6;
+
+  /* Forma */
+  --radius: 2px;
+  --border: 1px solid var(--line);
+  --shadow-near: 0 1px 2px rgba(40,39,34,.08);
+  --shadow-far:  0 18px 40px -28px rgba(40,39,34,.45);
+
+  /* Movimiento */
+  --dur-fast: 120ms;
+  --dur: 220ms;
+  --ease: cubic-bezier(.2,0,0,1);
+
+  --wrap: 68rem;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.25rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  margin: 0;
+  background: var(--base);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p{ margin: 0; }
+img{ max-width: 100%; height: auto; display: block; }
+
+/* El atributo hidden debe ganar siempre a las reglas de componente:
+   .menu-ready y .mobile-nav__panel definen display y lo anularían. */
+[hidden]{ display: none !important; }
+ul,ol{ margin: 0; padding: 0; list-style: none; }
+address{ font-style: normal; }
+
+a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+
+.sr-only{
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible{
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+.hero :focus-visible,
+.frieze-band :focus-visible,
+.site-footer :focus-visible,
+.proposal :focus-visible{ outline-color: var(--on-dark); }
+
+.wrap{
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--space-m);
+}
+
+/* ---------- 3. Saltar al contenido ---------- */
+.skip-link{
+  position: absolute;
+  left: var(--space-s);
+  top: -6rem;
+  z-index: 100;
+  background: var(--green);
+  color: var(--on-dark);
+  padding: var(--space-2xs) var(--space-s);
+  border-radius: var(--radius);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--dur) var(--ease);
+}
+.skip-link:focus{ top: var(--space-s); }
+
+/* ---------- 4. Aviso de propuesta ---------- */
+.proposal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs) var(--space-m);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: var(--step--1);
+  line-height: 1.4;
+  text-align: center;
+}
+.proposal__dot{
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+
+/* ---------- 5. Botones y enlaces ---------- */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  min-height: 2.75rem;
+  padding: var(--space-2xs) var(--space-m);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font-text);
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              border-color var(--dur) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.btn:active{ transform: translateY(1px); }
+.btn:disabled{ opacity: .6; cursor: default; transform: none; }
+
+.btn--small{
+  min-height: 2.5rem;
+  padding: var(--space-3xs) var(--space-s);
+  font-size: var(--step--1);
+}
+
+.btn--solid{
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--on-dark);
+}
+.btn--solid:hover{ background: var(--green-2); border-color: var(--green-2); }
+
+.btn--outline{
+  background: transparent;
+  border-color: var(--green);
+  color: var(--green);
+}
+.btn--outline:hover{ background: var(--green); color: var(--on-dark); }
+
+.btn--on-dark{
+  background: var(--on-dark);
+  border-color: var(--on-dark);
+  color: var(--green);
+}
+.btn--on-dark:hover{ background: var(--surface); border-color: var(--surface); }
+
+.btn--on-dark-outline{
+  background: transparent;
+  border-color: rgba(247,241,230,.55);
+  color: var(--on-dark);
+}
+.btn--on-dark-outline:hover{ border-color: var(--on-dark); background: rgba(247,241,230,.08); }
+
+.link-arrow{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  min-height: 2.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .35em;
+  transition: gap var(--dur) var(--ease);
+}
+.link-arrow::after{ content: "\2192"; text-decoration: none; }
+.link-arrow:hover{ gap: var(--space-2xs); text-decoration-thickness: 2px; }
+
+.link-inline{
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .22em;
+}
+.link-inline:hover{ text-decoration-color: var(--ink); }
+
+/* ---------- 6. Cabecera ---------- */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--base);
+  border-bottom: var(--border);
+}
+.site-header__inner{
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  min-height: 4.5rem;
+}
+
+.wordmark{
+  display: flex;
+  flex-direction: column;
+  gap: .1em;
+  margin-right: auto;
+  padding-block: var(--space-2xs);
+  text-decoration: none;
+  color: var(--ink);
+}
+.wordmark__kicker{
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  line-height: 1;
+}
+.wordmark__name{
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+.nav-desktop__list{ display: flex; gap: var(--space-m); }
+.nav-desktop__list a{
+  display: inline-block;
+  padding-block: var(--space-2xs);
+  color: var(--ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+.nav-desktop__list a:hover{ border-bottom-color: var(--accent); }
+
+.site-header__actions{ display: flex; align-items: center; gap: var(--space-s); }
+
+/* Menú móvil: <details>, funciona sin JavaScript */
+.mobile-nav{ display: none; }
+.mobile-nav__toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: 2.75rem;
+  padding: var(--space-3xs) var(--space-s);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+.mobile-nav__toggle::-webkit-details-marker{ display: none; }
+.mobile-nav__bars{ display: grid; gap: 4px; width: 1rem; }
+.mobile-nav__bars span{
+  display: block;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--dur) var(--ease);
+}
+.mobile-nav[open] .mobile-nav__bars span:first-child{ transform: translateY(2.5px) rotate(45deg); }
+.mobile-nav[open] .mobile-nav__bars span:last-child{ transform: translateY(-2.5px) rotate(-45deg); }
+
+.mobile-nav__panel{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding: var(--space-s) var(--space-m) var(--space-m);
+  background: var(--base);
+  border-bottom: var(--border);
+  box-shadow: var(--shadow-near);
+}
+.mobile-nav__panel ul{ margin-bottom: var(--space-s); }
+.mobile-nav__panel li a{
+  display: block;
+  padding-block: var(--space-xs);
+  min-height: 2.75rem;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: var(--border);
+}
+.mobile-nav__cta{ width: 100%; color: var(--on-dark); }
+
+/* ---------- 7. Eyebrow, notas, secciones ---------- */
+.eyebrow{
+  margin-bottom: var(--space-xs);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.eyebrow--light{ color: rgba(247,241,230,.72); }
+
+.lead{
+  margin-top: var(--space-s);
+  max-width: 48ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.note{
+  max-width: 52ch;
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.note--tight{ margin-top: var(--space-2xs); }
+.note--on-dark{ color: rgba(247,241,230,.74); max-width: 46ch; }
+
+.section{ padding-block: var(--space-2xl); }
+.section--paper{ background: var(--base); }
+
+.section__head{ margin-bottom: var(--space-xl); }
+.section__head h2{ font-size: clamp(var(--step-3), 3.4vw, var(--step-4)); }
+.section__head .lead{ margin-top: var(--space-s); }
+
+.badge{
+  display: inline-block;
+  padding: 0 var(--space-2xs);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent-ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+/* ---------- 8. Portada ---------- */
+.hero{
+  background: var(--green);
+  color: var(--on-dark);
+  padding-block: var(--space-2xl);
+}
+.hero__inner{
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.hero__title{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-m);
+  font-size: var(--step-0);
+}
+.hero__title-name{
+  font-family: var(--font-display);
+  font-size: clamp(var(--step-5), 12vw, var(--step-7));
+  line-height: .92;
+  letter-spacing: -0.025em;
+}
+.hero__lead{
+  max-width: 42ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: rgba(247,241,230,.88);
+}
+.hero__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+}
+
+/* La señal: plano del cruce */
+.sign{ width: min(100%, 24rem); justify-self: center; }
+.sign__plate{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--space-s);
+  aspect-ratio: 1 / 1;
+  padding: var(--space-m);
+  background: var(--green-2);
+  border: 2px solid var(--on-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-far);
+}
+.sign__kicker{
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(247,241,230,.68);
+}
+.sign__cross{
+  position: relative;
+  align-self: stretch;
+  min-height: 7rem;
+}
+.sign__road{ position: absolute; background: var(--accent); }
+.sign__road--h{ left: 0; right: 0; top: 58%; height: 2px; }
+.sign__road--v{ top: 0; bottom: 0; left: 34%; width: 2px; }
+.sign__dot{
+  position: absolute;
+  left: 34%;
+  top: 58%;
+  width: .6rem;
+  height: .6rem;
+  margin: -.3rem 0 0 -.3rem;
+  border-radius: 50%;
+  background: var(--on-dark);
+}
+.sign__label{
+  position: absolute;
+  white-space: nowrap;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(247,241,230,.78);
+}
+.sign__label--h{ left: calc(34% + .85rem); top: calc(58% + .6rem); }
+.sign__label--v{ right: 0; top: 0; writing-mode: vertical-rl; }
+.sign__here{
+  position: absolute;
+  left: calc(34% + .85rem);
+  top: calc(58% - 2rem);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(247,241,230,.78);
+}
+.sign__caption{
+  padding-top: var(--space-s);
+  border-top: 1px solid rgba(247,241,230,.18);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(247,241,230,.72);
+}
+
+/* ---------- 9. Datos de un vistazo ---------- */
+.facts{
+  background: var(--surface);
+  border-bottom: var(--border);
+  padding-block: var(--space-l) var(--space-m);
+}
+.facts__grid{
+  display: grid;
+  gap: var(--space-m);
+}
+.fact{
+  padding-top: var(--space-s);
+  border-top: 2px solid var(--ink);
+}
+.fact__label{
+  margin-bottom: var(--space-2xs);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.fact__value{
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1.25;
+}
+.fact__note{
+  margin-top: var(--space-3xs);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.facts__foot{
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
+  color: var(--ink-3);
+  max-width: 62ch;
+}
+
+/* ---------- 10. Carta ---------- */
+.menu-panel{
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-m);
+}
+.menu-panel__head{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-s);
+}
+.menu-panel__title{
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+}
+.menu-row{
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: baseline;
+  gap: var(--space-2xs);
+  padding-block: var(--space-s);
+  border-top: var(--border);
+}
+.menu-row__num{
+  font-size: var(--step--1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-ink);
+}
+.menu-row__name{
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.2;
+}
+.menu-panel__foot{
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--ink-3);
+  max-width: 62ch;
+}
+
+/* Carta real, cuando exista */
+.menu-ready{ display: grid; gap: var(--space-xl); }
+.menu-cat__title{
+  margin-bottom: var(--space-s);
+  padding-bottom: var(--space-2xs);
+  border-bottom: var(--border);
+  font-size: var(--step-2);
+}
+.menu-item{
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2xs);
+  padding-block: var(--space-2xs);
+}
+.menu-item__name{ font-weight: 600; }
+.menu-item__dots{ flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-.2em); }
+.menu-item__price{ font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* ---------- 11. Friso ilustrado ---------- */
+.frieze-band{
+  background: var(--green);
+  padding-block: var(--space-xl) var(--space-l);
+}
+.frieze{ margin: 0 auto; }
+.frieze__art{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* El SVG se dibuja a escala 0,6 en tablet: los rótulos se dimensionan para
+   conservar ~13 px reales a 768 px de ancho. */
+.frieze__awning-text{
+  fill: var(--green);
+  font-family: var(--font-text);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-anchor: middle;
+}
+.frieze__street{
+  fill: rgba(247,241,230,.72);
+  font-family: var(--font-text);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.frieze__street--v{ writing-mode: vertical-rl; }
+.frieze__caption{
+  margin-top: var(--space-s);
+  font-size: var(--step--1);
+  color: rgba(247,241,230,.76);
+  max-width: 56ch;
+}
+
+/* Banda móvil: dos calles y un cruce, sin dibujo. Se activa en @media. */
+.frieze__mobile{ display: none; }
+
+
+/* ---------- 13. Dónde estamos ---------- */
+.place{
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.address{
+  display: grid;
+  gap: var(--space-3xs);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1.35;
+}
+.address--on-dark{ font-size: var(--step-0); color: rgba(247,241,230,.82); }
+
+.place__info .note{ margin-top: var(--space-s); }
+.place__actions{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-m);
+  margin-top: var(--space-m);
+}
+
+.map{
+  display: grid;
+  min-height: 20rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  /* Retícula tenue: el hueco del mapa se lee como plano, no como caja vacía. */
+  background-image:
+    linear-gradient(rgba(36,59,48,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36,59,48,.055) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem, 2.5rem 2.5rem;
+}
+.map__pin{ color: var(--accent-ink); margin-bottom: var(--space-3xs); }
+.map__facade{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-2xs);
+  padding: var(--space-m);
+}
+.map__facade-title{ font-family: var(--font-display); font-size: var(--step-2); }
+.map__facade-text{ max-width: 32ch; font-size: var(--step--1); color: var(--ink-2); }
+.map__facade .btn{ margin-top: var(--space-2xs); }
+.map iframe{
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  border: 0;
+  border-radius: var(--radius);
+}
+.map.is-busy{ opacity: .6; }
+
+.details{
+  display: grid;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-l);
+  border-top: var(--border);
+}
+.details__head{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-s);
+}
+.details__title{
+  font-family: var(--font-text);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.hours{ display: grid; }
+.hours__row{
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding-block: var(--space-2xs);
+  border-bottom: var(--border);
+  font-size: var(--step--1);
+}
+.hours__row dt{ color: var(--ink-2); }
+.hours__row dd{ margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.details__block .note{ margin-top: var(--space-s); }
+
+.contact__phone{
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  margin-bottom: var(--space-2xs);
+}
+
+/* ---------- 14. Pie ---------- */
+.site-footer{
+  background: var(--green);
+  color: var(--on-dark);
+  padding-block: var(--space-xl) var(--space-m);
+}
+.site-footer__inner{
+  display: grid;
+  gap: var(--space-l);
+  padding-bottom: var(--space-l);
+}
+.wordmark--footer{ margin: 0 0 var(--space-2xs); padding: 0; color: var(--on-dark); }
+.wordmark--footer .wordmark__kicker{ color: rgba(247,241,230,.62); }
+.wordmark--footer .wordmark__name{ color: var(--on-dark); }
+
+/* Cuatro enlaces, siempre en dos filas de dos: nada queda huérfano, como
+   pasaba al envolverlos en línea. En escritorio pasan a una sola columna. */
+.site-footer__nav ul{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3xs) var(--space-s);
+}
+.site-footer__nav a{
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-block: var(--space-3xs);
+  color: var(--on-dark);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.site-footer__nav a:hover{ border-bottom-color: var(--accent); }
+
+.site-footer__legal{ display: grid; gap: var(--space-2xs); }
+.site-footer__base{ padding-top: var(--space-m); border-top: 1px solid rgba(247,241,230,.18); }
+
+/* ---------- 15. Responsive ---------- */
+@media (min-width: 40rem){
+  .site-footer__nav ul{ grid-template-columns: 1fr; }
+  .facts__grid{ grid-template-columns: repeat(3, 1fr); gap: var(--space-l); }
+  /* Dos líneas reservadas: las notas de las tres columnas quedan alineadas
+     aunque un valor ocupe una línea y otro dos. */
+  .fact__value{ min-height: 2.5em; }
+  .menu-row{
+    grid-template-columns: 2.5rem 1fr;
+    align-items: center;
+  }
+  .place{ grid-template-columns: 1fr 1fr; }
+  .details{ grid-template-columns: 1fr 1fr; gap: var(--space-l) var(--space-2xl); }
+  .site-footer__inner{ grid-template-columns: 1.2fr 1fr; }
+}
+
+@media (min-width: 48rem){
+  .hero__inner{ grid-template-columns: 1.15fr .85fr; gap: var(--space-l); }
+  .sign{ width: 100%; max-width: 21rem; justify-self: end; }
+  .nav-desktop{ display: block; }
+  .mobile-nav{ display: none; }
+}
+
+@media (min-width: 56rem){
+  /* La carta, a dos columnas: el estado a la izquierda y las categorías a la
+     derecha. Evita la fila de 900 px con tres palabras sueltas. */
+  .menu-panel{
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    column-gap: 0;
+    row-gap: var(--space-l);
+    align-items: start;
+  }
+  .menu-panel__head{
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+    padding-right: var(--space-xl);
+  }
+  /* Filete vertical: separa el estado de la carta de la lista, sin añadir
+     una segunda caja dentro de la tarjeta. */
+  .menu-rows{
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    padding-left: var(--space-xl);
+    border-left: var(--border);
+  }
+  .menu-panel__foot{
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0;
+    padding-right: var(--space-xl);
+    align-self: end;
+  }
+
+  .wrap{ padding-inline: var(--space-l); }
+  .site-header__inner{ min-height: 5.25rem; }
+  .hero{ padding-block: var(--space-3xl); }
+  .hero__inner{ grid-template-columns: 1.05fr .95fr; gap: var(--space-2xl); }
+  .sign{ justify-self: end; }
+  .section{ padding-block: var(--space-3xl); }
+  .facts{ padding-block: var(--space-xl) var(--space-l); }
+  .frieze-band{ padding-block: var(--space-2xl) var(--space-l); }
+  .menu-panel{ padding: var(--space-l); }
+  .site-footer__inner{ grid-template-columns: 1.4fr 1fr 1.4fr; gap: var(--space-xl); }
+}
+
+@media (max-width: 47.99rem){
+  .nav-desktop{ display: none; }
+  .mobile-nav{ display: block; }
+  .site-header__actions .btn--small{ display: none; }
+}/* Por debajo de 48rem el dibujo mide menos de 240 px de ancho y sus rótulos
+   quedarían a 5-7 px. Se sustituye por el cruce escrito: mismo mensaje,
+   legible, y la banda no desaparece ni deja un hueco. */
+@media (max-width: 47.99rem){
+  .frieze-band{ padding-block: var(--space-l); }
+  .frieze__art,
+  .frieze__caption{ display: none; }
+  .frieze__mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3xs);
+    padding-block: var(--space-2xs);
+    color: rgba(247,241,230,.82);
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .frieze__cross{
+    color: var(--accent);
+    font-size: var(--step-1);
+    line-height: 1;
+  }
+}
+
+@media (max-width: 30rem){
+  .hero{ padding-block: var(--space-xl); }
+  .hero__lead{ font-size: var(--step-0); line-height: 1.55; }
+  .sign{ width: min(100%, 15rem); }
+  .sign__plate{ aspect-ratio: auto; }
+  .sign__cross{ min-height: 5.5rem; }
+  .btn{ width: 100%; }
+  .hero__actions{ flex-direction: column; align-items: stretch; }
+}
+
+/* ---------- 16. Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after{
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<p class="proposal" role="note">
+  <span class="proposal__dot" aria-hidden="true"></span>
+  Propuesta de diseño no oficial · pendiente de aprobación del establecimiento
+</p>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="wordmark" href="#inicio" aria-label="Café-Bar La Señal, ir al inicio">
+      <span class="wordmark__kicker">Café-Bar</span>
+      <span class="wordmark__name">La Señal</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      <ul class="nav-desktop__list">
+        <li><a href="#carta">La carta</a></li>
+        <li><a href="#ubicacion">Dónde estamos</a></li>
+        <li><a href="#horario">Horario</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="btn btn--solid btn--small" data-maps-link href="#ubicacion">Cómo llegar</a>
+
+      <details class="mobile-nav">
+        <summary class="mobile-nav__toggle">
+          <span class="mobile-nav__bars" aria-hidden="true"><span></span><span></span></span>
+          <span class="mobile-nav__label">Menú</span>
+        </summary>
+        <nav class="mobile-nav__panel" aria-label="Principal, móvil">
+          <ul>
+            <li><a href="#carta">La carta</a></li>
+            <li><a href="#ubicacion">Dónde estamos</a></li>
+            <li><a href="#horario">Horario</a></li>
+          </ul>
+          <a class="btn btn--solid mobile-nav__cta" data-maps-link href="#ubicacion">Cómo llegar</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ============ Portada ============ -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="wrap hero__inner">
+
+      <div class="hero__text">
+        <p class="eyebrow eyebrow--light">Cafetería-bar</p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__title-name">La Señal</span>
+        </h1>
+        <p class="hero__lead">
+          En Don Benito, en la esquina de Manzanedo con Roble. Desayunos, café y
+          raciones, con la dirección, el horario y cómo llegar a mano.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--on-dark" data-maps-link href="#ubicacion">Cómo llegar</a>
+          <a class="btn btn--on-dark-outline" href="#carta">Ver la carta</a>
+        </div>
+      </div>
+
+      <!-- La señal: plano del cruce que da nombre al bar. Decorativo; la
+          dirección real está en el texto y en «Dónde estamos». -->
+      <div class="sign" aria-hidden="true">
+        <div class="sign__plate">
+          <span class="sign__kicker">Don Benito · 06400</span>
+          <div class="sign__cross">
+            <span class="sign__road sign__road--h"></span>
+            <span class="sign__road sign__road--v"></span>
+            <span class="sign__dot"></span>
+            <span class="sign__label sign__label--h">Manzanedo</span>
+            <span class="sign__label sign__label--v">Roble</span>
+            <span class="sign__here">Aquí</span>
+          </div>
+          <span class="sign__caption">Café-Bar La Señal</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Datos de un vistazo ============ -->
+  <section class="facts" aria-labelledby="facts-title">
+    <h2 class="sr-only" id="facts-title">Datos del establecimiento</h2>
+    <div class="wrap facts__grid">
+      <div class="fact">
+        <p class="fact__label">Dónde</p>
+        <p class="fact__value">Manzanedo, esquina con Roble</p>
+        <p class="fact__note">06400 Don Benito · Badajoz</p>
+      </div>
+      <div class="fact">
+        <p class="fact__label">Horario publicado</p>
+        <p class="fact__value">Abre a las 6:30</p>
+        <p class="fact__note">Lunes cerrado · <a href="#ubicacion">ver la semana</a></p>
+      </div>
+      <div class="fact">
+        <p class="fact__label">Teléfono</p>
+        <p class="fact__value" id="phone-display">924 96 56 69</p>
+        <p class="fact__note" id="phone-note">Publicado · sin confirmar</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="facts__foot">
+        Horario y teléfono publicados en fichas del local; pendientes de confirmar.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Carta ============ -->
+  <section class="section section--paper" id="carta" aria-labelledby="carta-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">01 · Carta</p>
+        <h2 id="carta-title">La carta</h2>
+        <p class="lead">
+          La carta se está cerrando con el local. En cuanto la faciliten, aparecerá aquí
+          completa: desayunos, raciones y precios.
+        </p>
+      </header>
+
+      <div class="menu-panel">
+        <div class="menu-panel__head">
+          <p class="menu-panel__title">Lo que citan las guías</p>
+          <p class="badge">Pendiente de confirmar</p>
+        </div>
+
+        <ul class="menu-rows" id="menu-documented">
+          <li class="menu-row">
+            <span class="menu-row__num" aria-hidden="true">01</span>
+            <span class="menu-row__name">Desayunos y tostadas</span>
+          </li>
+          <li class="menu-row">
+            <span class="menu-row__num" aria-hidden="true">02</span>
+            <span class="menu-row__name">Raciones</span>
+          </li>
+          <li class="menu-row">
+            <span class="menu-row__num" aria-hidden="true">03</span>
+            <span class="menu-row__name">Café y bar</span>
+          </li>
+        </ul>
+
+        <p class="menu-panel__foot">
+          Categorías citadas por la guía del Camino Mozárabe (SEMTAYR) y por APYME
+          Vegas Altas–La Serena. No son una lista de platos disponibles hoy.
+        </p>
+      </div>
+
+      <!-- Se rellena desde config.js cuando menu.status = "ready" -->
+      <div class="menu-ready" id="menu-ready" hidden></div>
+    </div>
+  </section>
+
+  <!-- ============ Friso ilustrado ============ -->
+  <section class="frieze-band" aria-label="Ilustración de la esquina">
+    <figure class="wrap frieze">
+      <svg class="frieze__art" viewBox="0 0 1200 380" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="awning" width="64" height="44" patternUnits="userSpaceOnUse">
+            <rect width="32" height="44" fill="#B96F43"></rect>
+            <rect x="32" width="32" height="44" fill="#1B2D24"></rect>
+          </pattern>
+        </defs>
+
+        <!-- calles -->
+        <line x1="40" y1="332" x2="1160" y2="332" stroke="rgba(247,241,230,.45)" stroke-width="1.5"></line>
+        <line x1="40" y1="332" x2="1160" y2="332" stroke="rgba(247,241,230,.35)" stroke-width="1.5" stroke-dasharray="18 16" stroke-dashoffset="9"></line>
+        <line x1="884" y1="74" x2="884" y2="332" stroke="rgba(247,241,230,.45)" stroke-width="1.5"></line>
+        <line x1="884" y1="74" x2="884" y2="332" stroke="rgba(247,241,230,.35)" stroke-width="1.5" stroke-dasharray="18 16"></line>
+
+        <!-- edificio -->
+        <rect x="120" y="86" width="660" height="246" fill="none" stroke="rgba(247,241,230,.85)" stroke-width="2"></rect>
+        <line x1="120" y1="86" x2="780" y2="86" stroke="rgba(247,241,230,.85)" stroke-width="2"></line>
+
+        <!-- rótulo sobre el toldo -->
+        <rect x="300" y="104" width="300" height="56" fill="#F7F1E6"></rect>
+        <text class="frieze__awning-text" x="450" y="140">CAFÉ-BAR LA SEÑAL</text>
+
+        <!-- toldo -->
+        <rect x="120" y="186" width="660" height="44" fill="url(#awning)"></rect>
+
+        <!-- ventanas -->
+        <g fill="none" stroke="rgba(247,241,230,.7)" stroke-width="1.5">
+          <rect x="168" y="266" width="128" height="66"></rect>
+          <rect x="332" y="266" width="128" height="66"></rect>
+          <circle cx="622" cy="298" r="31"></circle>
+        </g>
+
+        <!-- puerta -->
+        <rect x="712" y="258" width="86" height="74" fill="none" stroke="rgba(247,241,230,.9)" stroke-width="2"></rect>
+        <circle cx="788" cy="296" r="3" fill="rgba(247,241,230,.9)"></circle>
+
+        <!-- marca del cruce -->
+        <circle cx="884" cy="332" r="6" fill="#F7F1E6"></circle>
+
+        <!-- nombres de calle -->
+        <text class="frieze__street" x="132" y="366">CALLE MANZANEDO</text>
+        <text class="frieze__street frieze__street--v" x="922" y="86">CALLE ROBLE</text>
+      </svg>
+      <!-- Versión móvil: el dibujo completo mide menos de 240 px de ancho y sus
+           rótulos no se leen. En su lugar, el cruce escrito. -->
+      <p class="frieze__mobile" aria-hidden="true">
+        <span>Calle Manzanedo</span>
+        <span class="frieze__cross" aria-hidden="true">×</span>
+        <span>Calle Roble</span>
+      </p>
+      <figcaption class="frieze__caption">
+        Ilustración de la esquina de Manzanedo con Roble. No es una fotografía del
+        establecimiento.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ Dónde estamos y contacto ============ -->
+  <section class="section section--paper" id="ubicacion" aria-labelledby="ubicacion-title">
+    <div class="wrap">
+      <header class="section__head">
+        <p class="eyebrow">02 · Dónde estamos</p>
+        <h2 id="ubicacion-title">En la esquina de Manzanedo con Roble</h2>
+      </header>
+
+      <div class="place">
+        <div class="place__info">
+          <address class="address">
+            <span class="address__line">Calle Manzanedo</span>
+            <span class="address__line">esquina con calle Roble</span>
+            <span class="address__line">06400 Don Benito · Badajoz</span>
+          </address>
+
+          <p class="note">
+            La dirección es un cruce: falta confirmar el portal y el acceso.
+          </p>
+
+          <div class="place__actions">
+            <a class="btn btn--solid" data-maps-link href="#ubicacion">Cómo llegar</a>
+          </div>
+        </div>
+
+        <div class="place__map">
+          <div class="map" id="map" data-map role="region" aria-label="Mapa de la ubicación">
+            <div class="map__facade" data-map-facade>
+              <svg class="map__pin" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+                <path d="M12 2.8c3.6 0 6.5 2.9 6.5 6.5 0 4.6-6.5 12-6.5 12s-6.5-7.4-6.5-12c0-3.6 2.9-6.5 6.5-6.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                <circle cx="12" cy="9.3" r="2.4" fill="currentColor"></circle>
+              </svg>
+              <p class="map__facade-title">Mapa bajo demanda</p>
+              <p class="map__facade-text">
+                No se carga al abrir la página. Si lo pides, Google recibirá datos de tu
+                visita.
+              </p>
+              <button class="btn btn--outline" type="button" id="map-load">
+                Cargar mapa
+              </button>
+              <a class="link-arrow" data-maps-search href="#ubicacion">Abrir en Google Maps</a>
+            </div>
+            <p class="sr-only" id="map-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="details__block" id="horario">
+          <div class="details__head">
+            <h3 class="details__title">Horario</h3>
+            <span class="badge" id="hours-badge">Publicado · sin confirmar</span>
+          </div>
+          <dl class="hours" id="hours-list">
+            <div class="hours__row"><dt>Lunes</dt><dd>Cerrado</dd></div>
+            <div class="hours__row"><dt>Martes a jueves</dt><dd>6:30 – 24:00</dd></div>
+            <div class="hours__row"><dt>Viernes y sábado</dt><dd>6:30 – 1:00</dd></div>
+            <div class="hours__row"><dt>Domingo</dt><dd>6:30 – 17:00</dd></div>
+          </dl>
+          <p class="note">
+            Fuente: Turismo Badajoz (Diputación) y Restaurant Guru.
+          </p>
+        </div>
+
+        <div class="details__block">
+          <h3 class="details__title">Contacto</h3>
+          <p class="contact__phone" id="phone-contact">924 96 56 69</p>
+          <!-- El botón de WhatsApp se crea aquí solo si config.whatsapp.status
+              es "verified". Mientras no lo esté, el hueco no ocupa espacio. -->
+          <div id="whatsapp-slot"></div>
+          <p class="note" id="phone-contact-note">
+            Número publicado en directorios. Al no estar confirmado, no abre una llamada.
+          </p>
+          <p class="note note--tight">Sin WhatsApp ni redes sociales confirmadas.</p>
+          <p class="note note--tight">
+            <a class="link-inline" id="reviews-link" href="#ubicacion">Buscar opiniones en Google</a><span id="reviews-note"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__brand">
+      <p class="wordmark wordmark--footer">
+        <span class="wordmark__kicker">Café-Bar</span>
+        <span class="wordmark__name">La Señal</span>
+      </p>
+      <address class="address address--on-dark">
+        <span class="address__line">Calle Manzanedo, esquina con Roble</span>
+        <span class="address__line">06400 Don Benito · Badajoz</span>
+      </address>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Enlaces del pie">
+      <ul>
+        <li><a href="#carta">La carta</a></li>
+        <li><a href="#ubicacion">Dónde estamos</a></li>
+        <li><a href="#horario">Horario</a></li>
+        <li><a data-maps-link href="#ubicacion">Cómo llegar</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__legal">
+      <p class="note note--on-dark">
+        Propuesta de diseño no oficial. No es todavía la web del establecimiento; los
+        datos marcados como pendientes se confirmarán con el propietario antes de
+        publicarla.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap site-footer__base">
+    <p class="note note--on-dark">
+      Café-Bar La Señal · Don Benito (Badajoz) · <span id="year">2026</span>
+    </p>
+  </div>
+</footer>
+
+<!-- Datos estructurados: solo lo verificado. Sin teléfono, horario, precios,
+    coordenadas ni valoraciones. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Café-Bar La Señal",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Manzanedo, esquina con calle Roble",
+    "addressLocality": "Don Benito",
+    "addressRegion": "Extremadura",
+    "postalCode": "06400",
+    "addressCountry": "ES"
+  }
+}
+</script>
+
+<script>
+/* ============================================================
+   Café-Bar La Señal — configuración
+   ------------------------------------------------------------
+   Único sitio donde se cambian los datos variables y los estados.
+   La estructura y los textos viven en index.html; aquí van las
+   URL, los estados de verificación y el contenido sustituible.
+
+   REGLA: si un dato no está confirmado por el propietario, su
+   estado se queda en "pending" y la interfaz lo dice. No pongas
+   "verified" sin tener la confirmación.
+   ============================================================ */
+
+window.LA_SENAL = {
+  /* ---------- Negocio ---------- */
+  business: {
+    name: "Café-Bar La Señal",
+    shortName: "La Señal",
+    category: "Cafetería-bar",
+    street: "Calle Manzanedo, esquina con calle Roble",
+    postalCode: "06400",
+    town: "Don Benito",
+    province: "Badajoz",
+    region: "Extremadura",
+    country: "ES",
+
+    /* La URL de mapas se construye con la dirección postal, no con
+       coordenadas: no se han verificado coordenadas propias. */
+    mapsQuery:
+      "Café-Bar La Señal, Calle Manzanedo esquina calle Roble, 06400 Don Benito, Badajoz"
+  },
+
+  /* ---------- Teléfono ----------
+     Hay tres números distintos publicados en directorios
+     (924 96 56 69, 924 18 96 47, 673 42 15 52). Mientras no haya
+     confirmación del propietario: status "pending" y SIN enlace tel:.
+     Cambia a "verified" solo con confirmación directa. */
+  phone: {
+    display: "924 96 56 69",
+    status: "pending", // "pending" | "verified"
+    note: "Sin confirmar" // la franja de datos ya explica la fuente bajo la rejilla
+  },
+
+  /* ---------- WhatsApp ----------
+     No se ha confirmado ningún número de WhatsApp del negocio.
+     El botón NO se muestra mientras status !== "verified".
+     Cuando lo confirmen: number en formato internacional sin "+" ni
+     espacios (ej. "34673421552") y status "verified". */
+  whatsapp: {
+    number: "",
+    status: "pending", // "pending" | "verified"
+    message: "Hola, quería preguntar por el bar."
+  },
+
+  /* ---------- Reseñas ----------
+     No se ha localizado la ficha de Google del negocio (ni URL ni
+     Place ID). Mientras status sea "pending", el botón abre una
+     BÚSQUEDA de Google Maps, no la ficha. */
+  reviews: {
+    status: "pending", // "pending" | "verified"
+    url: "", // pegar aquí la URL directa de la ficha cuando se verifique
+    note: "La ficha de Google no está verificada: el botón abre una búsqueda con el nombre y la dirección."
+  },
+
+  /* ---------- Horario ----------
+     Horario publicado por Turismo Badajoz (Diputación) y
+     Restaurant Guru. Coinciden entre sí, pero no está confirmado por
+     el propietario. No se incluye en datos estructurados. */
+  hours: {
+    status: "published", // "published" | "verified"
+    note: "Horario publicado en fichas públicas, pendiente de confirmar.",
+    days: [
+      { day: "Lunes", value: "Cerrado" },
+      { day: "Martes a jueves", value: "6:30 – 24:00" },
+      { day: "Viernes y sábado", value: "6:30 – 1:00" },
+      { day: "Domingo", value: "6:30 – 17:00" }
+    ]
+  },
+
+  /* ---------- Carta ----------
+     No existe carta publicada. Con status "pending" se muestra el
+     estado honesto con las categorías documentadas y ningún plato ni
+     precio. Para publicar la carta real:
+       1. status: "ready"
+       2. rellena "categories" con { name, items:[{name, price, note}] }
+     Uso interno de la web; se oculta el bloque de "pendiente". */
+  menu: {
+    status: "pending", // "pending" | "ready"
+    note: "No hay carta publicada del establecimiento. No se han inventado platos ni precios.",
+    source:
+      "Categorías citadas por la guía del Camino Mozárabe (SEMTAYR) y por APYME Vegas Altas–La Serena.",
+    documentedCategories: ["Desayunos y tostadas", "Raciones", "Café y bar"],
+    categories: []
+  },
+
+  /* ---------- Fotografías ----------
+     No hay ninguna foto del local con permiso de uso, así que la web
+     no tiene galería: no se muestran huecos vacíos ni imágenes de
+     otros bares. Cuando existan (ver docs/derechos-imagenes.md), se
+     añade una sección de galería con marcado propio. */
+  gallery: {
+    status: "pending", // "pending" | "ready"
+    items: []
+  },
+
+  /* ---------- Mapa ----------
+     El iframe NO se carga al abrir la página. Se inyecta solo si el
+     visitante pulsa "Cargar mapa", para no enviar su IP a Google sin
+     permiso. Se construye con búsqueda por dirección (sin API key). */
+  map: {
+    enabled: true,
+    embedBase: "https://maps.google.com/maps",
+    zoom: 17
+  },
+
+  /* ---------- Aviso de propuesta ---------- */
+  proposal: {
+    active: true, // poner false solo cuando el propietario apruebe y la web sea oficial
+    label: "Propuesta de diseño · web no oficial"
+  }
+};
+
+</script>
+<script>
+/* ============================================================
+   Café-Bar La Señal — comportamiento
+   ------------------------------------------------------------
+   Sin dependencias. Todo se lee de js/config.js.
+   Si algo falla, la página sigue siendo legible: los textos están
+   en el HTML y los enlaces tienen un destino interno de reserva.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var CONFIG = window.LA_SENAL;
+  if (!CONFIG) return;
+
+  var $ = function (sel, root) { return (root || document).querySelector(sel); };
+  var $$ = function (sel, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  };
+
+  /* ---------- Utilidades ---------- */
+
+  // Deja el número en formato internacional sin signos, para tel: y wa.me
+  function toDial(number) {
+    var digits = String(number || "").replace(/[^\d+]/g, "");
+    if (!digits) return "";
+    if (digits.charAt(0) === "+") return digits.slice(1);
+    if (digits.length === 9) return "34" + digits; // España
+    return digits;
+  }
+
+  function mapsBase() {
+    var q = encodeURIComponent(CONFIG.business.mapsQuery);
+    return {
+      search: "https://www.google.com/maps/search/?api=1&query=" + q,
+      directions: "https://www.google.com/maps/dir/?api=1&destination=" + q
+    };
+  }
+
+  function externalise(link) {
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  }
+
+  /* ---------- Enlaces a Google Maps ---------- */
+  var maps = mapsBase();
+
+  $$("[data-maps-link]").forEach(function (el) {
+    el.href = maps.directions;
+    externalise(el);
+  });
+  $$("[data-maps-search]").forEach(function (el) {
+    el.href = maps.search;
+    externalise(el);
+  });
+
+  /* ---------- Aviso de propuesta ---------- */
+  var proposal = $(".proposal");
+  if (proposal) {
+    if (CONFIG.proposal && CONFIG.proposal.active === false) {
+      proposal.remove();
+    } else if (CONFIG.proposal && CONFIG.proposal.label) {
+      proposal.lastChild.textContent = " " + CONFIG.proposal.label;
+    }
+  }
+
+  /* ---------- Reseñas ---------- */
+  var reviewsLink = $("#reviews-link");
+  var reviewsNote = $("#reviews-note");
+  if (reviewsLink) {
+    var reviews = CONFIG.reviews || {};
+    var verifiedReviews = reviews.status === "verified" && reviews.url;
+    reviewsLink.href = verifiedReviews ? reviews.url : maps.search;
+    externalise(reviewsLink);
+    reviewsLink.setAttribute(
+      "aria-label",
+      "Buscar opiniones en Google. " + (verifiedReviews
+        ? "Abre la ficha del negocio en una pestaña nueva."
+        : "Abre una búsqueda de Google Maps en una pestaña nueva.")
+    );
+    if (reviewsNote) {
+      reviewsNote.textContent = verifiedReviews
+        ? " · abre la ficha del negocio en Google."
+        : " · abre una búsqueda, no la ficha del negocio.";
+    }
+  }
+
+  /* ---------- Teléfono (dos puntos: franja de datos y contacto) ---------- */
+  var phone = CONFIG.phone || {};
+  var phoneDial = toDial(phone.display);
+  var phoneIsVerified = phone.status === "verified" && !!phoneDial;
+
+  var phoneShort = $("#phone-display");
+  var phoneShortNote = $("#phone-note");
+
+  if (phoneShort) {
+    if (phoneIsVerified) {
+      var shortLink = document.createElement("a");
+      shortLink.href = "tel:+" + phoneDial;
+      shortLink.textContent = phone.display;
+      shortLink.className = "fact__value";
+      phoneShort.replaceWith(shortLink);
+      if (phoneShortNote) phoneShortNote.textContent = "Confirmado por el establecimiento";
+    } else if (phoneShortNote && phone.note) {
+      phoneShortNote.textContent = phone.note;
+    }
+  }
+
+  var phoneLong = $("#phone-contact");
+  var phoneLongNote = $("#phone-contact-note");
+
+  if (phoneLong) {
+    if (phoneIsVerified) {
+      var longLink = document.createElement("a");
+      longLink.href = "tel:+" + phoneDial;
+      longLink.textContent = phone.display;
+      longLink.className = "contact__phone";
+      phoneLong.replaceWith(longLink);
+      if (phoneLongNote) {
+        phoneLongNote.textContent = "Puedes llamar directamente desde el móvil.";
+      }
+    }
+  }
+
+  /* ---------- WhatsApp (solo si hay número confirmado) ---------- */
+  var wa = CONFIG.whatsapp || {};
+  var waSlot = $("#whatsapp-slot");
+  var waDial = toDial(wa.number);
+  if (waSlot && wa.status === "verified" && waDial) {
+    var waLink = document.createElement("a");
+    waLink.className = "btn btn--solid";
+    waLink.href = "https://wa.me/" + waDial +
+      (wa.message ? "?text=" + encodeURIComponent(wa.message) : "");
+    waLink.textContent = "Escribir por WhatsApp";
+    externalise(waLink);
+    waSlot.appendChild(waLink);
+  }
+
+  /* ---------- Horario ---------- */
+  var hours = CONFIG.hours || {};
+  var hoursList = $("#hours-list");
+  var hoursBadge = $("#hours-badge");
+
+  if (hoursList && Array.isArray(hours.days) && hours.days.length) {
+    hoursList.textContent = "";
+    hours.days.forEach(function (row) {
+      var wrap = document.createElement("div");
+      wrap.className = "hours__row";
+      var dt = document.createElement("dt");
+      dt.textContent = row.day;
+      var dd = document.createElement("dd");
+      dd.textContent = row.value;
+      wrap.appendChild(dt);
+      wrap.appendChild(dd);
+      hoursList.appendChild(wrap);
+    });
+  }
+  if (hoursBadge) {
+    hoursBadge.textContent = hours.status === "verified"
+      ? "Confirmado por el local"
+      : "Publicado · sin confirmar";
+  }
+
+  /* ---------- Carta ---------- */
+  var menu = CONFIG.menu || {};
+  var menuPanel = $(".menu-panel");
+  var menuReady = $("#menu-ready");
+  var documented = $("#menu-documented");
+
+  if (documented && Array.isArray(menu.documentedCategories)) {
+    documented.textContent = "";
+    menu.documentedCategories.forEach(function (name, index) {
+      var li = document.createElement("li");
+      li.className = "menu-row";
+
+      var num = document.createElement("span");
+      num.className = "menu-row__num";
+      num.setAttribute("aria-hidden", "true");
+      num.textContent = String(index + 1).padStart(2, "0");
+
+      var label = document.createElement("span");
+      label.className = "menu-row__name";
+      label.textContent = name;
+
+      li.appendChild(num);
+      li.appendChild(label);
+      documented.appendChild(li);
+    });
+  }
+
+  if (menuReady && menu.status === "ready" && Array.isArray(menu.categories) &&
+      menu.categories.length) {
+    menuReady.textContent = "";
+    menu.categories.forEach(function (cat) {
+      var section = document.createElement("section");
+      section.className = "menu-cat";
+
+      var h3 = document.createElement("h3");
+      h3.className = "menu-cat__title";
+      h3.textContent = cat.name;
+      section.appendChild(h3);
+
+      var list = document.createElement("ul");
+      (cat.items || []).forEach(function (item) {
+        var li = document.createElement("li");
+        li.className = "menu-item";
+
+        var name = document.createElement("span");
+        name.className = "menu-item__name";
+        name.textContent = item.name;
+        li.appendChild(name);
+
+        if (item.price) {
+          var dots = document.createElement("span");
+          dots.className = "menu-item__dots";
+          dots.setAttribute("aria-hidden", "true");
+          li.appendChild(dots);
+
+          var price = document.createElement("span");
+          price.className = "menu-item__price";
+          price.textContent = item.price;
+          li.appendChild(price);
+        }
+
+        if (item.note) {
+          var note = document.createElement("span");
+          note.className = "note";
+          note.textContent = item.note;
+          li.appendChild(note);
+        }
+        list.appendChild(li);
+      });
+
+      section.appendChild(list);
+      menuReady.appendChild(section);
+    });
+    menuReady.hidden = false;
+    if (menuPanel) menuPanel.hidden = true;
+  }
+
+  /* ---------- Menú móvil ---------- */
+  var mobileNav = $(".mobile-nav");
+  if (mobileNav) {
+    var summary = $("summary", mobileNav);
+    var closeNav = function () { mobileNav.open = false; };
+
+    mobileNav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) closeNav();
+    });
+
+    document.addEventListener("click", function (event) {
+      if (mobileNav.open && !mobileNav.contains(event.target)) closeNav();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && mobileNav.open) {
+        closeNav();
+        if (summary) summary.focus();
+      }
+    });
+
+    var desktop = window.matchMedia("(min-width: 56rem)");
+    var onBreakpoint = function (event) { if (event.matches) closeNav(); };
+    if (desktop.addEventListener) desktop.addEventListener("change", onBreakpoint);
+    else if (desktop.addListener) desktop.addListener(onBreakpoint);
+  }
+
+  /* ---------- Mapa bajo demanda ---------- */
+  var map = $("[data-map]");
+  var mapButton = $("#map-load");
+  var mapStatus = $("#map-status");
+
+  if (map && mapButton && CONFIG.map && CONFIG.map.enabled !== false) {
+    mapButton.addEventListener("click", function () {
+      var facade = $("[data-map-facade]", map);
+      var src = CONFIG.map.embedBase +
+        "?q=" + encodeURIComponent(CONFIG.business.mapsQuery) +
+        "&z=" + (CONFIG.map.zoom || 17) +
+        "&output=embed";
+
+      map.classList.add("is-busy");
+      map.setAttribute("aria-busy", "true");
+      mapButton.disabled = true;
+      mapButton.textContent = "Cargando mapa…";
+
+      var frame = document.createElement("iframe");
+      frame.src = src;
+      frame.title = "Mapa de Google con la ubicación de " + CONFIG.business.name;
+      frame.loading = "eager";
+      frame.referrerPolicy = "no-referrer-when-downgrade";
+      frame.setAttribute("allowfullscreen", "");
+
+      frame.addEventListener("load", function () {
+        map.classList.remove("is-busy");
+        map.removeAttribute("aria-busy");
+        if (facade) facade.remove();
+        if (mapStatus) mapStatus.textContent = "Mapa de Google cargado.";
+
+        // El botón que tenía el foco desaparece con la fachada: sin esto el
+        // foco cae al body y quien navega con teclado pierde el sitio.
+        map.setAttribute("tabindex", "-1");
+        map.focus({ preventScroll: true });
+      });
+
+      frame.addEventListener("error", function () {
+        map.classList.remove("is-busy");
+        map.removeAttribute("aria-busy");
+        // El marco roto no se deja en la página: queda el aviso y el enlace
+        // para abrir el mapa en Google Maps.
+        frame.remove();
+        mapButton.disabled = false;
+        mapButton.textContent = "Reintentar";
+        if (mapStatus) {
+          mapStatus.textContent =
+            "No se ha podido cargar el mapa. Usa el enlace para abrirlo en Google Maps.";
+        }
+      });
+
+      map.appendChild(frame);
+    });
+  }
+
+  /* ---------- Año del pie ---------- */
+  var year = $("#year");
+  if (year) year.textContent = String(new Date().getFullYear());
+})();
+
+</script>
+</body>
+</html>

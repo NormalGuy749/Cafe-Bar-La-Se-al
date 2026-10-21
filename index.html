@@ -4,16 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Café-Bar La Señal — cafetería-bar en Don Benito (Badajoz)</title>
-<meta name="description" content="Propuesta de web de Café-Bar La Señal, cafetería-bar en Don Benito (Badajoz): cómo llegar, horario publicado y carta pendiente de confirmar.">
+<title>Café-Bar La Señal — cafetería-bar en Don Benito</title>
+<meta name="description" content="Cafetería-bar en la esquina de Manzanedo con Roble, Don Benito (Badajoz). Dirección, horario publicado, cómo llegar y carta pendiente de confirmar.">
 <meta name="theme-color" content="#243B30">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://normalguy749.github.io/Cafe-Bar-La-Se-al/">
 
-<!-- Open Graph: sin og:url ni og:image porque no hay dominio ni fotografía autorizada. -->
+<!-- Propuesta no oficial: no debe competir en buscadores con el negocio real.
+    Quitar esta línea cuando el propietario apruebe la web definitiva. -->
+<meta name="robots" content="noindex">
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Café-Bar La Señal">
 <meta property="og:title" content="Café-Bar La Señal — Don Benito">
 <meta property="og:description" content="Cafetería-bar en la esquina de Manzanedo con Roble, Don Benito (Badajoz). Cómo llegar y horario publicado.">
+<meta property="og:url" content="https://normalguy749.github.io/Cafe-Bar-La-Se-al/">
+<meta name="twitter:card" content="summary">
 
 <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -21,10 +28,9 @@
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<!-- Aviso permanente: la web no es oficial. -->
 <p class="proposal" role="note">
-  <span class="proposal__mark" aria-hidden="true"></span>
-  Propuesta de diseño · esta web no es la oficial del establecimiento
+  <span class="proposal__dot" aria-hidden="true"></span>
+  Propuesta de diseño no oficial · pendiente de aprobación del establecimiento
 </p>
 
 <header class="site-header">
@@ -36,10 +42,9 @@
 
     <nav class="nav-desktop" aria-label="Principal">
       <ul class="nav-desktop__list">
-        <li><a href="#carta">Carta</a></li>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#carta">La carta</a></li>
+        <li><a href="#ubicacion">Dónde estamos</a></li>
+        <li><a href="#horario">Horario</a></li>
       </ul>
     </nav>
 
@@ -53,10 +58,9 @@
         </summary>
         <nav class="mobile-nav__panel" aria-label="Principal, móvil">
           <ul>
-            <li><a href="#carta">Carta</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#ubicacion">Ubicación</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#carta">La carta</a></li>
+            <li><a href="#ubicacion">Dónde estamos</a></li>
+            <li><a href="#horario">Horario</a></li>
           </ul>
           <a class="btn btn--solid mobile-nav__cta" data-maps-link href="#ubicacion">Cómo llegar</a>
         </nav>
@@ -67,83 +71,109 @@
 
 <main id="contenido">
 
-  <!-- ============ B. HERO ============ -->
+  <!-- ============ Portada ============ -->
   <section class="hero" id="inicio" aria-labelledby="hero-title">
     <div class="wrap hero__inner">
 
       <div class="hero__text">
-        <p class="eyebrow eyebrow--light">Don Benito · Badajoz</p>
+        <p class="eyebrow eyebrow--light">Cafetería-bar</p>
         <h1 class="hero__title" id="hero-title">
-          <span class="hero__title-kicker">Café-Bar</span>
           <span class="hero__title-name">La Señal</span>
         </h1>
         <p class="hero__lead">
-          Cafetería-bar de barrio en la esquina de Manzanedo con Roble, en Don Benito
-          (Badajoz). Una propuesta de web sencilla: dónde está, cuándo abre y qué
-          queda por confirmar.
+          En Don Benito, en la esquina de Manzanedo con Roble. Desayunos, café y
+          raciones, con la dirección, el horario y cómo llegar a mano.
         </p>
         <div class="hero__actions">
           <a class="btn btn--on-dark" data-maps-link href="#ubicacion">Cómo llegar</a>
           <a class="btn btn--on-dark-outline" href="#carta">Ver la carta</a>
         </div>
-        <p class="hero__meta">
-          <span class="hero__meta-dot" aria-hidden="true"></span>
-          Carta y horario pendientes de confirmar con el local
-        </p>
       </div>
 
-      <!-- La señal: el momento memorable. Decorativa; la dirección está en el texto. -->
+      <!-- La señal: plano del cruce que da nombre al bar. Decorativo; la
+          dirección real está en el texto y en «Dónde estamos». -->
       <div class="sign" aria-hidden="true">
         <div class="sign__plate">
           <span class="sign__kicker">Don Benito · 06400</span>
-          <span class="sign__word">La Señal</span>
           <div class="sign__cross">
             <span class="sign__road sign__road--h"></span>
             <span class="sign__road sign__road--v"></span>
             <span class="sign__dot"></span>
-            <span class="sign__label sign__label--h">Calle Manzanedo</span>
-            <span class="sign__label sign__label--v">Calle Roble</span>
+            <span class="sign__label sign__label--h">Manzanedo</span>
+            <span class="sign__label sign__label--v">Roble</span>
+            <span class="sign__here">Aquí</span>
           </div>
+          <span class="sign__caption">Café-Bar La Señal</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ============ C. CARTA ============ -->
+  <!-- ============ Datos de un vistazo ============ -->
+  <section class="facts" aria-labelledby="facts-title">
+    <h2 class="sr-only" id="facts-title">Datos del establecimiento</h2>
+    <div class="wrap facts__grid">
+      <div class="fact">
+        <p class="fact__label">Dónde</p>
+        <p class="fact__value">Manzanedo, esquina con Roble</p>
+        <p class="fact__note">06400 Don Benito · Badajoz</p>
+      </div>
+      <div class="fact">
+        <p class="fact__label">Horario publicado</p>
+        <p class="fact__value">Abre a las 6:30</p>
+        <p class="fact__note">Lunes cerrado · <a href="#ubicacion">ver la semana</a></p>
+      </div>
+      <div class="fact">
+        <p class="fact__label">Teléfono</p>
+        <p class="fact__value" id="phone-display">924 96 56 69</p>
+        <p class="fact__note" id="phone-note">Publicado · sin confirmar</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="facts__foot">
+        Horario y teléfono publicados en fichas del local; pendientes de confirmar.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Carta ============ -->
   <section class="section section--paper" id="carta" aria-labelledby="carta-title">
     <div class="wrap">
       <header class="section__head">
         <p class="eyebrow">01 · Carta</p>
-        <h2 id="carta-title">La carta, cuando el local la dicte</h2>
+        <h2 id="carta-title">La carta</h2>
         <p class="lead">
-          Esta propuesta no inventa platos ni precios. Lo que hay publicado del
-          establecimiento son categorías, no una carta: así que aquí van las categorías,
-          y el hueco queda preparado para la carta real.
+          La carta se está cerrando con el local. En cuanto la faciliten, aparecerá aquí
+          completa: desayunos, raciones y precios.
         </p>
       </header>
 
-      <div class="menu-pending" id="menu-pending">
-        <p class="stamp" aria-hidden="true">pendiente</p>
-
-        <div class="menu-pending__body">
-          <p class="menu-pending__title">Sin carta publicada</p>
-          <p>
-            No se ha encontrado una carta del establecimiento ni una foto de su pizarra.
-            Antes que rellenar la sección con platos de otra cafetería, se deja vacía.
-          </p>
-
-          <h3 class="menu-pending__subhead">Categorías que sí aparecen en fuentes públicas</h3>
-          <ul class="chips" id="menu-documented">
-            <li class="chip">Desayunos y tostadas</li>
-            <li class="chip">Raciones</li>
-            <li class="chip">Café y bar</li>
-          </ul>
-          <p class="note">
-            Fuente: guía del Camino Mozárabe (SEMTAYR) y APYME Vegas Altas–La Serena.
-            Son categorías citadas, no una lista de platos disponibles hoy.
-          </p>
+      <div class="menu-panel">
+        <div class="menu-panel__head">
+          <p class="menu-panel__title">Lo que citan las guías</p>
+          <p class="badge">Pendiente de confirmar</p>
         </div>
+
+        <ul class="menu-rows" id="menu-documented">
+          <li class="menu-row">
+            <span class="menu-row__num" aria-hidden="true">01</span>
+            <span class="menu-row__name">Desayunos y tostadas</span>
+          </li>
+          <li class="menu-row">
+            <span class="menu-row__num" aria-hidden="true">02</span>
+            <span class="menu-row__name">Raciones</span>
+          </li>
+          <li class="menu-row">
+            <span class="menu-row__num" aria-hidden="true">03</span>
+            <span class="menu-row__name">Café y bar</span>
+          </li>
+        </ul>
+
+        <p class="menu-panel__foot">
+          Categorías citadas por la guía del Camino Mozárabe (SEMTAYR) y por APYME
+          Vegas Altas–La Serena. No son una lista de platos disponibles hoy.
+        </p>
       </div>
 
       <!-- Se rellena desde config.js cuando menu.status = "ready" -->
@@ -151,137 +181,102 @@
     </div>
   </section>
 
-  <!-- ============ D. GALERÍA ============ -->
-  <section class="section section--surface" id="galeria" aria-labelledby="galeria-title">
-    <div class="wrap">
-      <header class="section__head section__head--split">
-        <div>
-          <p class="eyebrow">02 · Galería</p>
-          <h2 id="galeria-title">El local, en cinco huecos</h2>
-        </div>
-        <p class="note note--measure">
-          Ninguna fotografía de este sitio es del bar todavía. Los huecos son marcadores
-          provisionales: se sustituyen por las fotos que facilite el propietario.
-        </p>
-      </header>
+  <!-- ============ Friso ilustrado ============ -->
+  <section class="frieze-band" aria-label="Ilustración de la esquina">
+    <figure class="wrap frieze">
+      <svg class="frieze__art" viewBox="0 0 1200 380" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="awning" width="64" height="44" patternUnits="userSpaceOnUse">
+            <rect width="32" height="44" fill="#B96F43"></rect>
+            <rect x="32" width="32" height="44" fill="#1B2D24"></rect>
+          </pattern>
+        </defs>
 
-      <ul class="gallery" id="gallery">
-        <li class="gallery__item gallery__item--wide">
-          <figure class="frame">
-            <div class="frame__box" data-frame="Fachada">
-              <span class="frame__label">Fotografía pendiente</span>
-              <span class="frame__slot">Fachada</span>
-            </div>
-          </figure>
-        </li>
-        <li class="gallery__item">
-          <figure class="frame">
-            <div class="frame__box" data-frame="Interior">
-              <span class="frame__label">Fotografía pendiente</span>
-              <span class="frame__slot">Interior</span>
-            </div>
-          </figure>
-        </li>
-        <li class="gallery__item">
-          <figure class="frame">
-            <div class="frame__box" data-frame="La barra">
-              <span class="frame__label">Fotografía pendiente</span>
-              <span class="frame__slot">La barra</span>
-            </div>
-          </figure>
-        </li>
-        <li class="gallery__item">
-          <figure class="frame">
-            <div class="frame__box" data-frame="Desayuno">
-              <span class="frame__label">Fotografía pendiente</span>
-              <span class="frame__slot">Desayuno</span>
-            </div>
-          </figure>
-        </li>
-        <li class="gallery__item">
-          <figure class="frame">
-            <div class="frame__box" data-frame="Detalle">
-              <span class="frame__label">Fotografía pendiente</span>
-              <span class="frame__slot">Detalle</span>
-            </div>
-          </figure>
-        </li>
-      </ul>
-    </div>
+        <!-- calles -->
+        <line x1="40" y1="332" x2="1160" y2="332" stroke="rgba(247,241,230,.45)" stroke-width="1.5"></line>
+        <line x1="40" y1="332" x2="1160" y2="332" stroke="rgba(247,241,230,.35)" stroke-width="1.5" stroke-dasharray="18 16" stroke-dashoffset="9"></line>
+        <line x1="884" y1="74" x2="884" y2="332" stroke="rgba(247,241,230,.45)" stroke-width="1.5"></line>
+        <line x1="884" y1="74" x2="884" y2="332" stroke="rgba(247,241,230,.35)" stroke-width="1.5" stroke-dasharray="18 16"></line>
+
+        <!-- edificio -->
+        <rect x="120" y="86" width="660" height="246" fill="none" stroke="rgba(247,241,230,.85)" stroke-width="2"></rect>
+        <line x1="120" y1="86" x2="780" y2="86" stroke="rgba(247,241,230,.85)" stroke-width="2"></line>
+
+        <!-- rótulo sobre el toldo -->
+        <rect x="300" y="104" width="300" height="56" fill="#F7F1E6"></rect>
+        <text class="frieze__awning-text" x="450" y="140">CAFÉ-BAR LA SEÑAL</text>
+
+        <!-- toldo -->
+        <rect x="120" y="186" width="660" height="44" fill="url(#awning)"></rect>
+
+        <!-- ventanas -->
+        <g fill="none" stroke="rgba(247,241,230,.7)" stroke-width="1.5">
+          <rect x="168" y="266" width="128" height="66"></rect>
+          <rect x="332" y="266" width="128" height="66"></rect>
+          <circle cx="622" cy="298" r="31"></circle>
+        </g>
+
+        <!-- puerta -->
+        <rect x="712" y="258" width="86" height="74" fill="none" stroke="rgba(247,241,230,.9)" stroke-width="2"></rect>
+        <circle cx="788" cy="296" r="3" fill="rgba(247,241,230,.9)"></circle>
+
+        <!-- marca del cruce -->
+        <circle cx="884" cy="332" r="6" fill="#F7F1E6"></circle>
+
+        <!-- nombres de calle -->
+        <text class="frieze__street" x="132" y="366">CALLE MANZANEDO</text>
+        <text class="frieze__street frieze__street--v" x="922" y="86">CALLE ROBLE</text>
+      </svg>
+      <!-- Versión móvil: el dibujo completo mide menos de 240 px de ancho y sus
+           rótulos no se leen. En su lugar, el cruce escrito. -->
+      <p class="frieze__mobile" aria-hidden="true">
+        <span>Calle Manzanedo</span>
+        <span class="frieze__cross" aria-hidden="true">×</span>
+        <span>Calle Roble</span>
+      </p>
+      <figcaption class="frieze__caption">
+        Ilustración de la esquina de Manzanedo con Roble. No es una fotografía del
+        establecimiento.
+      </figcaption>
+    </figure>
   </section>
 
-  <!-- ============ E. RESEÑAS ============ -->
-  <section class="band band--green" id="resenas" aria-labelledby="resenas-title">
-    <div class="wrap band__inner">
-      <p class="eyebrow eyebrow--light">03 · Reseñas</p>
-      <h2 id="resenas-title">Lo que se dice del bar, en Google</h2>
-      <p class="band__lead">
-        Aquí no hay estrellas ni frases de clientes copiadas: no se han verificado ni la
-        ficha del negocio ni las condiciones para reproducir reseñas. El botón lleva a
-        Google para que cada uno lea lo que hay.
-      </p>
-      <div class="band__actions">
-        <a class="btn btn--on-dark" id="reviews-link" data-reviews-link href="#ubicacion">
-          Leer reseñas en Google
-        </a>
-      </div>
-      <p class="note note--on-dark" id="reviews-note">
-        La ficha de Google no está verificada: el enlace abre una búsqueda con el nombre
-        y la dirección del bar.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ F. UBICACIÓN ============ -->
+  <!-- ============ Dónde estamos y contacto ============ -->
   <section class="section section--paper" id="ubicacion" aria-labelledby="ubicacion-title">
     <div class="wrap">
       <header class="section__head">
-        <p class="eyebrow">04 · Ubicación</p>
+        <p class="eyebrow">02 · Dónde estamos</p>
         <h2 id="ubicacion-title">En la esquina de Manzanedo con Roble</h2>
       </header>
 
-      <div class="location">
-        <div class="location__info">
+      <div class="place">
+        <div class="place__info">
           <address class="address">
-            <span class="address__line">Calle Manzanedo, esquina con calle Roble</span>
+            <span class="address__line">Calle Manzanedo</span>
+            <span class="address__line">esquina con calle Roble</span>
             <span class="address__line">06400 Don Benito · Badajoz</span>
           </address>
 
           <p class="note">
-            Dirección sin número de portal: el local está en el cruce. Pendiente de
-            confirmar el acceso principal y el número exacto.
+            La dirección es un cruce: falta confirmar el portal y el acceso.
           </p>
 
-          <div class="location__actions">
+          <div class="place__actions">
             <a class="btn btn--solid" data-maps-link href="#ubicacion">Cómo llegar</a>
-            <a class="link-arrow" data-maps-search href="#ubicacion">Abrir en Google Maps</a>
-          </div>
-
-          <div class="hours">
-            <div class="hours__head">
-              <h3 class="hours__title">Horario</h3>
-              <span class="badge" id="hours-badge">Publicado · sin confirmar</span>
-            </div>
-            <dl class="hours__list" id="hours-list">
-              <div class="hours__row"><dt>Lunes</dt><dd>Cerrado</dd></div>
-              <div class="hours__row"><dt>Martes a jueves</dt><dd>6:30 – 24:00</dd></div>
-              <div class="hours__row"><dt>Viernes y sábado</dt><dd>6:30 – 1:00</dd></div>
-              <div class="hours__row"><dt>Domingo</dt><dd>6:30 – 17:00</dd></div>
-            </dl>
-            <p class="note">
-              Horario publicado en la ficha de Turismo Badajoz (Diputación) y en
-              Restaurant Guru. Coinciden, pero conviene confirmarlo antes de fiarse.
-            </p>
           </div>
         </div>
 
-        <div class="location__map">
-          <div class="map" id="map" data-map>
+        <div class="place__map">
+          <div class="map" id="map" data-map role="region" aria-label="Mapa de la ubicación">
             <div class="map__facade" data-map-facade>
+              <svg class="map__pin" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+                <path d="M12 2.8c3.6 0 6.5 2.9 6.5 6.5 0 4.6-6.5 12-6.5 12s-6.5-7.4-6.5-12c0-3.6 2.9-6.5 6.5-6.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                <circle cx="12" cy="9.3" r="2.4" fill="currentColor"></circle>
+              </svg>
               <p class="map__facade-title">Mapa bajo demanda</p>
               <p class="map__facade-text">
-                El mapa no se carga al abrir la página. Si lo pides, Google recibirá
-                datos de tu visita.
+                No se carga al abrir la página. Si lo pides, Google recibirá datos de tu
+                visita.
               </p>
               <button class="btn btn--outline" type="button" id="map-load">
                 Cargar mapa
@@ -292,51 +287,39 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ============ G. CONTACTO ============ -->
-  <section class="section section--surface" id="contacto" aria-labelledby="contacto-title">
-    <div class="wrap">
-      <header class="section__head">
-        <p class="eyebrow">05 · Contacto</p>
-        <h2 id="contacto-title">Hablar con el bar</h2>
-      </header>
-
-      <div class="contact">
-        <div class="contact__block">
-          <h3 class="contact__subhead">Teléfono</h3>
-          <p class="contact__phone" id="phone-display">924 96 56 69</p>
-          <p class="note" id="phone-note">
-            Número publicado en fichas de directorios. Pendiente de confirmar con el
-            local, por eso no es un enlace de llamada.
+      <div class="details">
+        <div class="details__block" id="horario">
+          <div class="details__head">
+            <h3 class="details__title">Horario</h3>
+            <span class="badge" id="hours-badge">Publicado · sin confirmar</span>
+          </div>
+          <dl class="hours" id="hours-list">
+            <div class="hours__row"><dt>Lunes</dt><dd>Cerrado</dd></div>
+            <div class="hours__row"><dt>Martes a jueves</dt><dd>6:30 – 24:00</dd></div>
+            <div class="hours__row"><dt>Viernes y sábado</dt><dd>6:30 – 1:00</dd></div>
+            <div class="hours__row"><dt>Domingo</dt><dd>6:30 – 17:00</dd></div>
+          </dl>
+          <p class="note">
+            Fuente: Turismo Badajoz (Diputación) y Restaurant Guru.
           </p>
         </div>
 
-        <div class="contact__block">
-          <h3 class="contact__subhead">Dirección</h3>
-          <address class="address">
-            <span class="address__line">Calle Manzanedo, esquina con calle Roble</span>
-            <span class="address__line">06400 Don Benito · Badajoz</span>
-          </address>
-          <a class="link-arrow" href="#ubicacion">Ver en el mapa</a>
-        </div>
-
-        <div class="contact__block">
-          <h3 class="contact__subhead">WhatsApp y redes</h3>
-          <p id="whatsapp-status">
-            Sin confirmar. No se ha verificado un número de WhatsApp del negocio ni un
-            perfil social propio, así que no se enlazan.
-          </p>
-          <!-- El botón de WhatsApp se añade aquí solo si whatsapp.status = "verified" -->
+        <div class="details__block">
+          <h3 class="details__title">Contacto</h3>
+          <p class="contact__phone" id="phone-contact">924 96 56 69</p>
+          <!-- El botón de WhatsApp se crea aquí solo si config.whatsapp.status
+              es "verified". Mientras no lo esté, el hueco no ocupa espacio. -->
           <div id="whatsapp-slot"></div>
+          <p class="note" id="phone-contact-note">
+            Número publicado en directorios. Al no estar confirmado, no abre una llamada.
+          </p>
+          <p class="note note--tight">Sin WhatsApp ni redes sociales confirmadas.</p>
+          <p class="note note--tight">
+            <a class="link-inline" id="reviews-link" href="#ubicacion">Buscar opiniones en Google</a><span id="reviews-note"></span>
+          </p>
         </div>
       </div>
-
-      <p class="contact__footnote">
-        Esta propuesta no incluye formulario de contacto: no hay servicio de envío
-        detrás y no se va a simular uno.
-      </p>
     </div>
   </section>
 
@@ -350,42 +333,38 @@
         <span class="wordmark__name">La Señal</span>
       </p>
       <address class="address address--on-dark">
-        <span class="address__line">Calle Manzanedo, esquina con calle Roble</span>
+        <span class="address__line">Calle Manzanedo, esquina con Roble</span>
         <span class="address__line">06400 Don Benito · Badajoz</span>
       </address>
     </div>
 
     <nav class="site-footer__nav" aria-label="Enlaces del pie">
       <ul>
-        <li><a href="#carta">Carta</a></li>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#carta">La carta</a></li>
+        <li><a href="#ubicacion">Dónde estamos</a></li>
+        <li><a href="#horario">Horario</a></li>
+        <li><a data-maps-link href="#ubicacion">Cómo llegar</a></li>
       </ul>
     </nav>
 
     <div class="site-footer__legal">
       <p class="note note--on-dark">
-        Créditos de imagen: ninguna fotografía. Los huecos de la galería son marcadores
-        provisionales.
-      </p>
-      <p class="note note--on-dark">
-        Antes de publicar, el titular debe aportar aviso legal, datos fiscales y la
-        información de privacidad que corresponda.
+        Propuesta de diseño no oficial. No es todavía la web del establecimiento; los
+        datos marcados como pendientes se confirmarán con el propietario antes de
+        publicarla.
       </p>
     </div>
   </div>
 
   <div class="wrap site-footer__base">
     <p class="note note--on-dark">
-      Propuesta de diseño no oficial · <span id="year">2026</span> · Pendiente de
-      aprobación del propietario
+      Café-Bar La Señal · Don Benito (Badajoz) · <span id="year">2026</span>
     </p>
   </div>
 </footer>
 
-<!-- Datos estructurados: solo lo verificado. Sin teléfono, sin horario,
-     sin precios, sin coordenadas, sin valoraciones, sin URL (no hay dominio). -->
+<!-- Datos estructurados: solo lo verificado. Sin teléfono, horario, precios,
+    coordenadas ni valoraciones. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
