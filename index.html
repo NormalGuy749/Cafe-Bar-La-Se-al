@@ -7,7 +7,8 @@
 <title>Café-Bar La Señal — cafetería-bar en Don Benito</title>
 <meta name="description" content="Cafetería-bar en la esquina de Manzanedo con Roble, Don Benito (Badajoz). Dirección, horario publicado, cómo llegar y carta pendiente de confirmar.">
 <meta name="theme-color" content="#243B30">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=20261022" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon.svg?v=20261022" type="image/svg+xml" sizes="any">
 <link rel="canonical" href="https://normalguy749.github.io/Cafe-Bar-La-Se-al/">
 
 <!-- Propuesta no oficial: no debe competir en buscadores con el negocio real.
@@ -21,6 +22,10 @@
 <meta property="og:description" content="Cafetería-bar en la esquina de Manzanedo con Roble, Don Benito (Badajoz). Cómo llegar y horario publicado.">
 <meta property="og:url" content="https://normalguy749.github.io/Cafe-Bar-La-Se-al/">
 <meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://normalguy749.github.io/Cafe-Bar-La-Se-al/assets/images/fachada.jpg">
+<meta property="og:image:alt" content="Fachada de Café-Bar La Señal en Don Benito">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="563">
 
 <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -42,7 +47,7 @@
 
     <nav class="nav-desktop" aria-label="Principal">
       <ul class="nav-desktop__list">
-        <li><a href="#carta">La carta</a></li>
+        <li><a href="carta.html">La carta</a></li>
         <li><a href="#ubicacion">Dónde estamos</a></li>
         <li><a href="#horario">Horario</a></li>
       </ul>
@@ -58,7 +63,7 @@
         </summary>
         <nav class="mobile-nav__panel" aria-label="Principal, móvil">
           <ul>
-            <li><a href="#carta">La carta</a></li>
+            <li><a href="carta.html">La carta</a></li>
             <li><a href="#ubicacion">Dónde estamos</a></li>
             <li><a href="#horario">Horario</a></li>
           </ul>
@@ -81,31 +86,24 @@
           <span class="hero__title-name">La Señal</span>
         </h1>
         <p class="hero__lead">
-          En Don Benito, en la esquina de Manzanedo con Roble. Desayunos, café y
-          raciones, con la dirección, el horario y cómo llegar a mano.
+          Desayunos, café y raciones en la esquina de Manzanedo con Roble. Un bar
+          de barrio en Don Benito para empezar el día y alargar la sobremesa.
         </p>
         <div class="hero__actions">
           <a class="btn btn--on-dark" data-maps-link href="#ubicacion">Cómo llegar</a>
-          <a class="btn btn--on-dark-outline" href="#carta">Ver la carta</a>
+          <a class="btn btn--on-dark-outline" href="carta.html">Ver la carta</a>
         </div>
       </div>
 
-      <!-- La señal: plano del cruce que da nombre al bar. Decorativo; la
-          dirección real está en el texto y en «Dónde estamos». -->
-      <div class="sign" aria-hidden="true">
-        <div class="sign__plate">
-          <span class="sign__kicker">Don Benito · 06400</span>
-          <div class="sign__cross">
-            <span class="sign__road sign__road--h"></span>
-            <span class="sign__road sign__road--v"></span>
-            <span class="sign__dot"></span>
-            <span class="sign__label sign__label--h">Manzanedo</span>
-            <span class="sign__label sign__label--v">Roble</span>
-            <span class="sign__here">Aquí</span>
-          </div>
-          <span class="sign__caption">Café-Bar La Señal</span>
-        </div>
-      </div>
+      <!-- La fachada real, con el rótulo del local. La idea del cruce que da
+          nombre al bar se mantiene dibujada en el friso, más abajo. -->
+      <figure class="hero__media">
+        <img class="hero__photo"
+             src="assets/images/fachada.jpg"
+             width="1000" height="563"
+             alt="Fachada de Café-Bar La Señal, con el rótulo sobre el escaparate, en la esquina de Manzanedo con Roble."
+             fetchpriority="high" decoding="async">
+      </figure>
 
     </div>
   </section>
@@ -144,8 +142,12 @@
         <p class="eyebrow">01 · Carta</p>
         <h2 id="carta-title">La carta</h2>
         <p class="lead">
-          La carta se está cerrando con el local. En cuanto la faciliten, aparecerá aquí
-          completa: desayunos, raciones y precios.
+          La carta se está cerrando con el local. Mientras tanto, esta es una selección
+          visual de seis platos que aparecen en las fotos; los precios y los alérgenos
+          siguen pendientes.
+        </p>
+        <p class="section__action">
+          <a class="btn btn--outline" href="carta.html">Ver la carta en imágenes</a>
         </p>
       </header>
 
@@ -178,6 +180,35 @@
 
       <!-- Se rellena desde config.js cuando menu.status = "ready" -->
       <div class="menu-ready" id="menu-ready" hidden></div>
+
+      <!-- Fotografías de platos cedidas para la propuesta. Sin nombres ni
+          precios: la carta sigue pendiente de confirmación. -->
+      <div class="plates">
+        <div class="plates__head">
+          <h3 class="plates__title">De la cocina</h3>
+          <p class="plates__note">
+            Fotografías de platos del local. En la carta visual están los nombres que
+            se reconocen; los precios siguen pendientes.
+          </p>
+        </div>
+        <ul class="plates__grid">
+          <li class="plate">
+            <img src="assets/images/plato-cachopo.jpg" width="750" height="1000"
+                 loading="lazy" decoding="async"
+                 alt="Plato de carne rebozada cubierta con lonchas de jamón, junto a una ración de patatas fritas sobre pizarra negra.">
+          </li>
+          <li class="plate">
+            <img src="assets/images/plato-pulpo.jpg" width="495" height="619"
+                 loading="lazy" decoding="async"
+                 alt="Ración de pulpo a la brasa con patatas y una ensalada de tomate y lechuga al lado.">
+          </li>
+          <li class="plate">
+            <img src="assets/images/plato-jamon.jpg" width="416" height="560"
+                 loading="lazy" decoding="async"
+                 alt="Plato de jamón con picos de pan y una caña de cerveza sobre la mesa del bar.">
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -264,6 +295,13 @@
           <div class="place__actions">
             <a class="btn btn--solid" data-maps-link href="#ubicacion">Cómo llegar</a>
           </div>
+
+          <figure class="place__figure">
+            <img src="assets/images/fachada-calle.jpg" width="640" height="480"
+                 loading="lazy" decoding="async"
+                 alt="Rótulo de Café-Bar La Señal sobre el escaparate, con la puerta de entrada a la derecha.">
+            <figcaption>La fachada y el rótulo, en la esquina de Manzanedo con Roble.</figcaption>
+          </figure>
         </div>
 
         <div class="place__map">
@@ -340,7 +378,7 @@
 
     <nav class="site-footer__nav" aria-label="Enlaces del pie">
       <ul>
-        <li><a href="#carta">La carta</a></li>
+        <li><a href="carta.html">La carta</a></li>
         <li><a href="#ubicacion">Dónde estamos</a></li>
         <li><a href="#horario">Horario</a></li>
         <li><a data-maps-link href="#ubicacion">Cómo llegar</a></li>

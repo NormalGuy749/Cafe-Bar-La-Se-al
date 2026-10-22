@@ -16,7 +16,7 @@
 | Horarios | **Publicados y coherentes entre sí**, sin confirmación del propietario |
 | Ficha de Google / URL de reseñas | **Existencia probable, identificador NO verificado** |
 | Carta y precios | **NO existe carta publicada** |
-| Logotipo | **NO localizado** |
+| Logotipo | **Localizado en las fotos de fachada** (flecha, zigzag y n); el propietario confirmó que la flecha y el zigzag son parte de la marca; vectorizado |
 | Fotografías con licencia reutilizable | **NINGUNA** |
 | Redes sociales propias | **NO confirmadas** |
 
@@ -119,8 +119,8 @@
 
 ## 3. Identidad visual
 
-- **Logotipo:** no localizado ningún archivo de marca atribuible. Las publicaciones de APYME muestran el nombre del negocio, pero eso no acredita un logotipo oficial.
-- **Decisión:** la web usa una **identificación tipográfica provisional** (el nombre compuesto en la serif de titulares + un rótulo de propuesta). No imita ningún logotipo.
+- **Logotipo:** no se ha localizado ningún archivo vectorial ni una marca registrada atribuible, pero las fotografías de la fachada muestran una **n de gran formato** sobre el rótulo, con una flecha y un zigzag del mismo material encima. El propietario confirmó el 22/10/2026 que **la flecha y el zigzag forman parte del logotipo**. Se ha vectorizado el conjunto a mano para el favicon (`assets/favicon.svg`), sin inventar el símbolo.
+- **Decisión:** el favicon usa el logotipo completo (flecha, zigzag y n). El resto de la identidad sigue siendo **tipográfica provisional** (el nombre compuesto en la serif de titulares + un rótulo de propuesta). No se imita ninguna marca ajena.
 - **Colores:** la paleta es una propuesta de diseño, no colores oficiales. Ver `docs/diseno.md`.
 
 ## 4. Riesgos de confusión con homónimos

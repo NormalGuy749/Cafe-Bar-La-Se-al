@@ -1,21 +1,38 @@
 # Derechos de imagen y recursos gráficos
 
-**Fecha:** 21 de octubre de 2026
+**Última revisión:** 22 de octubre de 2026
 
-## 1. Situación actual: cero imágenes
+## 1. Situación actual: ocho fotos del local integradas
 
-La web **no incluye ninguna fotografía**, ni del establecimiento ni de ningún otro origen.
+El proyecto contiene fotografías aportadas para la propuesta en `images/`. Se han integrado las
+ocho; no queda ninguna sin usar.
 
 | Recurso | Estado |
 |---|---|
-| Fotografías del local | **Ninguna.** No hay galería: no se muestran huecos vacíos |
-| Fotografía de portada | **Ninguna.** La portada es una composición tipográfica con la placa-señal |
-| Logotipo | **Ninguno.** Marca tipográfica provisional |
-| Iconos | **Solo dos dibujos propios en SVG**: el favicon (cruce y punto) y el alfiler del mapa. Ninguno de terceros |
+| Fotografía de portada | `assets/images/fachada.jpg`: fachada completa con el rótulo, enmarcada sobre el verde |
+| Fachada en «Dónde estamos» | `assets/images/fachada-calle.jpg`: detalle del rótulo y la entrada |
+| Fotografías de platos en la portada | `plato-cachopo.jpg`, `plato-pulpo.jpg` y `plato-jamon.jpg`, en la sección de la carta |
+| Fotografías de platos en la carta visual | Las seis: `plato-cachopo`, `plato-pulpo`, `plato-jamon`, `plato-huevos-jamon`, `plato-nachos` y `plato-calamares`, una por ficha |
+| Autoría y permiso | **No constan por escrito en el repositorio.** Hay que confirmarlos antes de publicar |
+| Galería | **No hay**: cada foto tiene una función, no forman una rejilla suelta |
+| Logotipo | **La flecha con zigzag y la n del rótulo**, vectorizadas desde la foto de la fachada (ver §4). El propietario confirmó el 22/10/2026 que la flecha y el zigzag forman parte del logotipo. No hay archivo vectorial original |
+| Iconos | **Dos dibujos propios en SVG**: el favicon con el logotipo del rótulo y el alfiler del mapa. Ninguno de terceros |
 | Fuentes web | **Ninguna.** Solo fuentes instaladas en el sistema |
 | Imágenes generadas por IA | **Ninguna** |
 
-Esto no es una carencia técnica, es una decisión: el brief prohíbe reutilizar imágenes de Google Maps, redes sociales o webs de terceros sin permiso documentado, y prohíbe presentar imágenes generadas como fotos del bar.
+Los originales están en `images/`; las versiones web, en `assets/images/` (JPEG, 345–1000 px,
+≈530 KB en total). Solo se han redimensionado y recomprimido, salvo dos recortes de encuadre: en
+`plato-huevos-jamon.jpg` se elimina el pie con la marca de fecha de la cámara y en `plato-nachos.jpg`
+se ajusta el borde inferior. En ambos casos el recorte no quita comida del plato.
+
+El favicon no es una foto: es un trazado vectorial de la flecha, el zigzag y la n del rótulo, hecho
+a mano a partir de `images (3).jpg`. Se ha idealizado la perspectiva y el grosor, y el color se ha
+fijado en `#B58056`, tomado de la foto a pleno sol (la toma en sombra da `#7E6A52`). **No es un
+color de marca confirmado**: la pintura real del rótulo puede ser algo más clara u oscura.
+
+Las fotos integradas proceden de los archivos aportados con el proyecto, no de Google Maps,
+redes ni webs de terceros. Se mantiene la prohibición de reutilizar imágenes ajenas sin permiso
+documentado y de presentar imágenes generadas como fotos del bar.
 
 ## 2. Qué se ha descartado y por qué
 
@@ -29,20 +46,22 @@ Esto no es una carencia técnica, es una decisión: el brief prohíbe reutilizar
 
 **Ninguna imagen se ha descargado, recortado ni enlazado en caliente (hotlink).**
 
-## 3. Cómo incorporar fotos cuando el propietario las aporte
+## 3. Cómo se han incorporado las fotos
 
-La versión actual **no tiene sección de galería**: con cero fotos autorizadas, cualquier rejilla
-sería un hueco. Cuando lleguen, se añade una sección propia (portada → datos → carta → friso →
-dónde estamos → **galería**), con `figure`/`figcaption` y estas reglas:
+No hay galería: las tres fotos de la portada se presentan dentro de la sección de la carta y las
+seis de la carta visual, en fichas ordenadas con su `alt`, sin formar una rejilla suelta. Las dos
+fachadas se usan en la portada y en «Dónde estamos».
 
-- tres a cinco fotos como máximo, todas del local;
-- `width`/`height` declarados para no provocar saltos de maquetación;
-- `loading="lazy"` salvo la primera;
-- `alt` descriptivo y real (no palabras clave);
-- pie con la autoría cuando la pidan las condiciones del permiso.
+Reglas aplicadas:
 
-`js/config.js` ya reserva el bloque `gallery`, con `status: "pending"` e `items: []`, para no
-inventar contenido mientras no haya archivos.
+- ocho fotos en total (seis de platos y dos de fachada), todas del local, cada una con una función;
+- `width`/`height` reales para no provocar saltos de maquetación;
+- `loading="lazy"` en todas salvo la portada;
+- `alt` descriptivo de lo que se ve, sin nombres de platos ni palabras clave;
+- sin recortes que cambien lo que representa la imagen: solo se quitó el pie con la fecha de la cámara en una foto y se ajustó el borde inferior en otra;
+- sin pies con autoría porque la autoría aún no consta.
+
+Queda pendiente añadir el crédito si el permiso lo exige y documentar por escrito la cesión.
 
 ### Requisitos mínimos por fotografía
 
@@ -65,11 +84,22 @@ Renombrar en minúsculas y sin acentos (`fachada.webp`, `barra.webp`) y rellenar
 
 ## 4. Registro de recursos usados
 
-| Archivo | Origen | Licencia / permiso | Crédito en la web |
-|---|---|---|---|
-| *(ninguno)* | — | — | — |
+| Archivo web | Original | Uso | Licencia / permiso | Crédito en la web |
+|---|---|---|---|---|
+| `assets/images/fachada.jpg` | `images/interior-exterior_del_bar/cafebarlasealdonbenito.jpg` | Portada | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/images/fachada-calle.jpg` | `images/interior-exterior_del_bar/images (3).jpg` | «Dónde estamos» | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/images/plato-cachopo.jpg` | `images/platos/WhatsApp Image 2026-10-22 at 3.14.32 PM.jpeg` | Carta, cocina | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/images/plato-pulpo.jpg` | `images/platos/images (2).jpg` | Carta, cocina | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/images/plato-jamon.jpg` | `images/platos/Captura de pantalla 2026-10-22 151747.png` | Carta, cocina | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/images/plato-huevos-jamon.jpg` | `images/platos/images (1).jpg` | Carta visual, ficha | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/images/plato-nachos.jpg` | `images/platos/images.jpg` | Carta visual, ficha | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/images/plato-calamares.jpg` | `images/platos/Captura de pantalla 2026-10-22 151456.png` | Carta visual, ficha | Aportado para la propuesta; **permiso escrito pendiente** | No |
+| `assets/favicon.svg` y `assets/favicon-32.png` | `images/interior-exterior_del_bar/images (3).jpg` (logotipo: flecha, zigzag y n) | Favicon | Trazado propio desde la foto; **permiso escrito pendiente** | No |
 
-Cuando se añada el primer recurso, esta tabla es la que hay que completar. Si un recurso no está aquí, no debe estar en la web.
+Los ocho originales aportados están en uso. Los archivos de `images/` se conservan intactos, sin
+recortes ni cambios.
+
+Si un recurso no está en esta tabla, no debe estar en la web.
 
 ## 5. Nota sobre el mapa incrustado
 

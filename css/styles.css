@@ -441,73 +441,20 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   margin-top: var(--space-l);
 }
 
-/* La señal: plano del cruce */
-.sign{ width: min(100%, 24rem); justify-self: center; }
-.sign__plate{
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: var(--space-s);
-  aspect-ratio: 1 / 1;
-  padding: var(--space-m);
-  background: var(--green-2);
-  border: 2px solid var(--on-dark);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-far);
+/* La portada enseña el local: la fachada real, enmarcada en un filete
+   crema como la placa que sustituye. Nada de sombras ni superposiciones. */
+.hero__media{
+  width: min(100%, 30rem);
+  margin: 0;
+  justify-self: center;
+  padding: var(--space-2xs);
+  border: 1px solid rgba(247,241,230,.32);
 }
-.sign__kicker{
-  font-size: var(--step--1);
-  font-weight: 600;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: rgba(247,241,230,.68);
-}
-.sign__cross{
-  position: relative;
-  align-self: stretch;
-  min-height: 7rem;
-}
-.sign__road{ position: absolute; background: var(--accent); }
-.sign__road--h{ left: 0; right: 0; top: 58%; height: 2px; }
-.sign__road--v{ top: 0; bottom: 0; left: 34%; width: 2px; }
-.sign__dot{
-  position: absolute;
-  left: 34%;
-  top: 58%;
-  width: .6rem;
-  height: .6rem;
-  margin: -.3rem 0 0 -.3rem;
-  border-radius: 50%;
-  background: var(--on-dark);
-}
-.sign__label{
-  position: absolute;
-  white-space: nowrap;
-  font-size: var(--step--1);
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(247,241,230,.78);
-}
-.sign__label--h{ left: calc(34% + .85rem); top: calc(58% + .6rem); }
-.sign__label--v{ right: 0; top: 0; writing-mode: vertical-rl; }
-.sign__here{
-  position: absolute;
-  left: calc(34% + .85rem);
-  top: calc(58% - 2rem);
-  font-size: var(--step--1);
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(247,241,230,.78);
-}
-.sign__caption{
-  padding-top: var(--space-s);
-  border-top: 1px solid rgba(247,241,230,.18);
-  font-size: var(--step--1);
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: rgba(247,241,230,.72);
+.hero__photo{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 40%;
 }
 
 /* ---------- 9. Datos de un vistazo ---------- */
@@ -613,6 +560,46 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 .menu-item__dots{ flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-.2em); }
 .menu-item__price{ font-variant-numeric: tabular-nums; font-weight: 600; }
 
+/* ---------- 10 bis. La cocina, en imágenes ---------- */
+.plates{ margin-top: var(--space-2xl); }
+.plates__head{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2xs) var(--space-l);
+  margin-bottom: var(--space-s);
+}
+.plates__title{ font-size: var(--step-2); }
+.plates__note{
+  max-width: 52ch;
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.plates__grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2xs);
+}
+.plate{
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper);
+}
+/* En móvil la primera foto ocupa el ancho completo: evita tres
+   rectángulos altos seguidos y da una entrada a la sección. */
+.plate:first-child{
+  grid-column: 1 / -1;
+  aspect-ratio: 1 / 1;
+}
+.plate img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* ---------- 11. Friso ilustrado ---------- */
 .frieze-band{
   background: var(--green);
@@ -656,9 +643,14 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 /* ---------- 13. Dónde estamos ---------- */
 .place{
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-xl);
   align-items: start;
+  min-width: 0;
 }
+.place__info,
+.place__map{ min-width: 0; }
+.place__map .map{ width: 100%; }
 .address{
   display: grid;
   gap: var(--space-3xs);
@@ -675,6 +667,21 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   align-items: center;
   gap: var(--space-m);
   margin-top: var(--space-m);
+}
+
+.place__figure{ margin: var(--space-l) 0 0; }
+.place__figure img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 50%;
+  background: var(--paper);
+}
+.place__figure figcaption{
+  margin-top: var(--space-2xs);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink-3);
 }
 
 .map{
@@ -795,7 +802,7 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 /* ---------- 15. Responsive ---------- */
 @media (min-width: 40rem){
   .site-footer__nav ul{ grid-template-columns: 1fr; }
-  .facts__grid{ grid-template-columns: repeat(3, 1fr); gap: var(--space-l); }
+  .facts__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-l); }
   /* Dos líneas reservadas: las notas de las tres columnas quedan alineadas
      aunque un valor ocupe una línea y otro dos. */
   .fact__value{ min-height: 2.5em; }
@@ -803,16 +810,18 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
     grid-template-columns: 2.5rem 1fr;
     align-items: center;
   }
-  .place{ grid-template-columns: 1fr 1fr; }
-  .details{ grid-template-columns: 1fr 1fr; gap: var(--space-l) var(--space-2xl); }
+  .place{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .details{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-l) var(--space-2xl); }
   .site-footer__inner{ grid-template-columns: 1.2fr 1fr; }
 }
 
 @media (min-width: 48rem){
   .hero__inner{ grid-template-columns: 1.15fr .85fr; gap: var(--space-l); }
-  .sign{ width: 100%; max-width: 21rem; justify-self: end; }
+  .hero__media{ width: 100%; justify-self: end; }
   .nav-desktop{ display: block; }
   .mobile-nav{ display: none; }
+  .plates__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .plate:first-child{ grid-column: auto; aspect-ratio: 4 / 5; }
 }
 
 @media (min-width: 56rem){
@@ -853,7 +862,7 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   .site-header__inner{ min-height: 5.25rem; }
   .hero{ padding-block: var(--space-3xl); }
   .hero__inner{ grid-template-columns: 1.05fr .95fr; gap: var(--space-2xl); }
-  .sign{ justify-self: end; }
+  .hero__media{ justify-self: end; }
   .section{ padding-block: var(--space-3xl); }
   .facts{ padding-block: var(--space-xl) var(--space-l); }
   .frieze-band{ padding-block: var(--space-2xl) var(--space-l); }
@@ -895,9 +904,7 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 @media (max-width: 30rem){
   .hero{ padding-block: var(--space-xl); }
   .hero__lead{ font-size: var(--step-0); line-height: 1.55; }
-  .sign{ width: min(100%, 15rem); }
-  .sign__plate{ aspect-ratio: auto; }
-  .sign__cross{ min-height: 5.5rem; }
+  .hero__media{ width: 100%; }
   .btn{ width: 100%; }
   .hero__actions{ flex-direction: column; align-items: stretch; }
 }
@@ -914,47 +921,232 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
     scroll-behavior: auto !important;
   }
 }
-.place {
-display: grid;
-grid-template-columns: minmax(0, 1fr);
-gap: var(--space-xl);
-align-items: start;
-min-width: 0;
+
+/* ---------- 17. Carta visual (subpágina) ---------- */
+/* La carta reutiliza tokens, cabecera, botones y pie. Solo añade
+   estructuras propias: entrada, pieza destacada, fichas y cierre. */
+
+.nav-desktop__list a[aria-current="page"],
+.mobile-nav__panel li a[aria-current="page"],
+.site-footer__nav a[aria-current="page"]{ border-bottom-color: var(--accent); }
+
+.menu-hero{
+  background: var(--green);
+  color: var(--on-dark);
+  padding-block: var(--space-2xl);
+}
+.menu-hero__inner{
+  display: grid;
+  gap: var(--space-xl);
+  align-items: end;
+}
+.menu-hero__title{
+  margin-bottom: var(--space-m);
+  font-size: clamp(var(--step-5), 11vw, var(--step-7));
+  line-height: .92;
+  letter-spacing: -.025em;
+  color: var(--on-dark);
+}
+.menu-hero__lead{
+  max-width: 46ch;
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: rgba(247,241,230,.88);
+}
+.menu-hero__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+}
+.menu-hero__note{
+  display: grid;
+  gap: var(--space-s);
+  max-width: 27rem;
+  padding-top: var(--space-s);
+  border-top: 1px solid rgba(247,241,230,.28);
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: rgba(247,241,230,.78);
+}
+.menu-hero__note-title{
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.15;
+  color: var(--on-dark);
+}
+.menu-hero__note-meta{
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(247,241,230,.62);
 }
 
-.place__info,
-.place__map {
-min-width: 0;
+.menu-section{ padding-block: var(--space-2xl); }
+.menu-section__head{ margin-bottom: var(--space-xl); }
+
+.menu-feature{
+  display: grid;
+  gap: var(--space-l);
+  margin-bottom: var(--space-2xl);
+  padding-top: var(--space-l);
+  border-top: 2px solid var(--ink);
+}
+.menu-feature__media{
+  margin: 0;
+  background: var(--paper);
+}
+.menu-feature__media img{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+.menu-feature__media figcaption{
+  margin-top: var(--space-2xs);
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+.menu-feature__body{ align-self: center; max-width: 44ch; }
+.menu-feature__body h3{
+  margin-bottom: var(--space-s);
+  font-size: clamp(var(--step-3), 5vw, var(--step-5));
+  line-height: 1;
+}
+.menu-feature__text{
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.menu-feature__meta{
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
 }
 
-.place__map,
-.place__map .map {
-width: 100%;
-min-width: 0;
+.menu-list{ display: grid; }
+.menu-dish{
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: var(--space-s);
+  align-items: start;
+  padding-block: var(--space-m);
+  border-top: var(--border);
+}
+.menu-dish__media{
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper);
+}
+.menu-dish__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* La foto de calamares es 4:3 y el plato queda a la izquierda; el recorte
+   de la ficha conserva el limón y la ración. */
+.menu-dish__media--calamares img{ object-position: 30% center; }
+.menu-dish__body h3{
+  margin-bottom: var(--space-3xs);
+  font-size: var(--step-2);
+  line-height: 1.15;
+}
+.menu-dish__body p{
+  max-width: 36ch;
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.menu-dish__meta{
+  margin-top: var(--space-2xs);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.menu-list__note{
+  display: grid;
+  align-content: start;
+  gap: var(--space-s);
+  padding-block: var(--space-m);
+  border-top: var(--border);
+}
+.menu-list__note p{ max-width: 38ch; font-size: var(--step--1); line-height: 1.55; color: var(--ink-2); }
+
+.menu-notes{
+  padding-block: var(--space-xl);
+  border-top: var(--border);
+  background: var(--surface);
+}
+.menu-notes__inner{ display: grid; gap: var(--space-l); }
+.menu-notes__inner p{
+  max-width: 56ch;
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.menu-notes__inner .note{ margin-top: var(--space-2xs); color: var(--ink-3); }
+
+.menu-cta{
+  background: var(--green);
+  color: var(--on-dark);
+  padding-block: var(--space-2xl);
+}
+.menu-cta__inner{ display: grid; gap: var(--space-xl); align-items: end; }
+.menu-cta h2{
+  margin-bottom: var(--space-s);
+  font-size: clamp(var(--step-3), 4vw, var(--step-5));
+  color: var(--on-dark);
+}
+.menu-cta__text{
+  max-width: 46ch;
+  color: rgba(247,241,230,.84);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+.menu-cta__actions{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+}
+.menu-cta__note{
+  flex-basis: 100%;
+  max-width: 32ch;
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: rgba(247,241,230,.68);
 }
 
-.place__map .map {
-box-sizing: border-box;
-min-height: 20rem;
+@media (min-width: 48rem){
+  .menu-hero__inner{ grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: var(--space-2xl); }
+  .menu-feature{ grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-2xl); }
 }
 
-.details {
-display: grid;
-grid-template-columns: minmax(0, 1fr);
-gap: var(--space-xl);
-margin-top: var(--space-2xl);
-padding-top: var(--space-l);
-border-top: var(--border);
+@media (min-width: 56rem){
+  .menu-hero{ padding-block: var(--space-3xl); }
+  .menu-section{ padding-block: var(--space-3xl); }
+  .menu-list{ grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-2xl); }
+  .menu-dish{ grid-template-columns: 9rem minmax(0, 1fr); gap: var(--space-m); }
+  .menu-notes__inner{ grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-2xl); }
+  .menu-cta{ padding-block: var(--space-3xl); }
+  .menu-cta__inner{ grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--space-2xl); }
 }
 
-@media (min-width: 40rem) {
-.place {
-grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 30rem){
+  .menu-dish{ grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--space-xs); }
+  .menu-hero__title{ font-size: var(--step-5); }
+  .menu-hero__lead{ font-size: var(--step-0); line-height: 1.55; }
+  .menu-feature__text{ font-size: var(--step-0); }
+  .menu-cta__actions .btn{ width: 100%; }
 }
 
-.details {
-grid-template-columns: repeat(2, minmax(0, 1fr));
-column-gap: var(--space-2xl);
-row-gap: var(--space-l);
-}
-}
+.section__action{ margin-top: var(--space-m); }

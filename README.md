@@ -13,11 +13,13 @@ Landing page en español para un café-bar de barrio en Don Benito (Badajoz).
 | Cómo | Qué hace |
 |---|---|
 | `node pruebas/serve.mjs` → <http://127.0.0.1:8099/> | La web real, con sus rutas relativas (`css/`, `js/`) |
-| Abrir `pruebas/render-check.html` | Copia de un solo archivo con CSS y JS incrustados: doble clic, sin servidor |
+| La misma dirección + `/carta.html` | La carta visual, la subpágina provisional con los platos fotografiados |
+| Abrir `pruebas/render-check.html` | Copia de un solo archivo con CSS, JS y fotos incrustados: doble clic, sin servidor |
 | Abrir `index.html` directamente | **No sirve**: sin servidor, el navegador no carga `css/` ni `js/` |
 
 `pruebas/render-check.html` **se genera** desde `index.html`, `css/styles.css`, `js/config.js` y
-`js/main.js`:
+`js/main.js`; las fotos de `assets/images/` se incrustan como `data:` para que la copia no dependa
+de rutas relativas:
 
 ```bash
 node pruebas/build-render-check.mjs   # regenera la copia de un solo archivo
@@ -28,7 +30,8 @@ No se edita a mano: si cambias la web, regenérala o la copia dejará de represe
 ## Comprobaciones
 
 ```bash
-node pruebas/check.mjs                # 19 comprobaciones estáticas (anclas, metadatos, JSON-LD…)
+node pruebas/check.mjs                # 20 comprobaciones de la portada (anclas, metadatos, imágenes, JSON-LD…)
+node pruebas/check-carta.mjs          # 17 comprobaciones de la carta visual
 node --check js/main.js js/config.js  # sintaxis del JavaScript
 node pruebas/capturas.mjs             # capturas con viewport exacto (requiere Chrome y el servidor)
 ```
@@ -38,7 +41,9 @@ metadatos, jerarquía de encabezados, JSON-LD, enlaces y botones, recursos exter
 relleno, datos no verificados, aviso de propuesta, CSS y JavaScript. También comprueba que `hidden`
 no queda anulado por una regla `display`, que no hay `role="img"` con `aria-hidden`, que no se
 repite una misma frase visible y que `pruebas/render-check.html` no se ha quedado atrás (huella
-SHA-256 de las cuatro fuentes).
+SHA-256 de las cuatro fuentes). Desde la integración de fotos verifica además que cada imagen
+existe, tiene `alt` descriptivo, `width`/`height` que coinciden con el archivo real y carga
+diferida salvo la de portada.
 
 `pruebas/capturas.mjs` fija el viewport por CDP: `chrome --headless --screenshot` no sirve por
 debajo de ~500 px en Windows (maqueta a un ancho mínimo y recorta la imagen).
@@ -46,39 +51,51 @@ debajo de ~500 px en Windows (maqueta a un ancho mínimo y recorta la imagen).
 ## Estructura
 
 ```
-index.html                      Marcado y textos
-css/styles.css                  Sistema visual (tokens + componentes)
+index.html                      Marcado y textos de la portada
+carta.html                      Carta visual: selección provisional de platos
+css/styles.css                  Sistema visual (tokens + componentes y estilos de la carta)
 js/config.js                    Datos variables, estados de verificación y URLs
 js/main.js                      Comportamiento (enlaces, horario, menú, mapa)
-assets/favicon.svg              Icono del cruce (vectorial, 288 bytes)
-assets/images/                  Vacía: no hay ninguna foto autorizada
+assets/favicon.svg              Logotipo del rótulo (flecha, zigzag y n) vectorizado (1,1 KB)
+assets/favicon-32.png           Respaldo PNG 32×32 del mismo logotipo (0,7 KB)
+assets/images/                  Fotos optimizadas para la web: fachada y seis platos
+images/                         Fotografías originales aportadas para la propuesta (sin tocar)
 docs/investigacion.md           Fuentes, datos confirmados y discrepancias
 docs/diseno.md                  Brief, tokens, contraste, jerarquía y comportamiento
 docs/derechos-imagenes.md       Política de imágenes y cómo incorporar las del propietario
 docs/pendientes-propietario.md  Qué falta y las preguntas para el dueño
 docs/pruebas.md                 Pruebas ejecutadas, resultados y limitaciones
 docs/capturas/                  Capturas: histórico + carpeta de la versión actual
-docs/capturas/2026-10-21/       Capturas de esta versión (viewport exacto por CDP)
+docs/capturas/2026-10-22/       Capturas de la portada (viewport exacto por CDP)
+docs/capturas/2026-10-22-carta/ Capturas de la carta visual
 pruebas/serve.mjs               Servidor local mínimo (Node, sin dependencias)
 pruebas/build-render-check.mjs  Genera la copia de un solo archivo
-pruebas/check.mjs               Comprobaciones estáticas
+pruebas/check.mjs               Comprobaciones estáticas de la portada
+pruebas/check-carta.mjs         Comprobaciones estáticas de la carta
 pruebas/capturas.mjs            Capturas con viewport exacto (Chrome + CDP)
 pruebas/render-check.html       Copia generada (no editar)
 ```
 
 ## Secciones de la página
 
-1. **Portada**: nombre, qué es, dónde está, a qué se dedica y dos acciones reales
-   («Cómo llegar», «Ver la carta»).
+1. **Portada**: nombre, qué es, dónde está, a qué se dedica, dos acciones reales («Cómo llegar»,
+   «Ver la carta») y la fotografía de la fachada enmarcada.
 2. **Datos de un vistazo**: dirección, horario publicado y teléfono, con su estado.
-3. **La carta**: estado honesto (no hay carta publicada) y las tres categorías citadas en guías.
+3. **La carta**: estado honesto (no hay carta publicada), las tres categorías citadas en guías y
+   tres fotografías de platos sin nombres ni precios, con el enlace a la carta visual.
+
+La **carta visual** (`carta.html`) es una subpágina aparte: seis platos que se reconocen en las
+fotos del local, sin precios, alérgenos ni disponibilidad. No es la carta oficial y lo dice en la
+entrada, en el cierre y en el pie.
 4. **Friso**: el cruce de Manzanedo con Roble dibujado en SVG, con el rótulo del bar. Por debajo
    de 48rem el dibujo se sustituye por la banda escrita «Calle Manzanedo × Calle Roble».
-5. **Dónde estamos**: dirección, mapa bajo demanda, horario, contacto y opiniones en Google.
+5. **Dónde estamos**: dirección, fotografía de la fachada, mapa bajo demanda, horario, contacto y
+   opiniones en Google.
 6. **Pie**: marca, dirección, navegación y aviso de propuesta.
 
-No hay galería ni sección de reseñas: sin fotos ni ficha de Google verificada, serían huecos o
-texto disculpándose. Ver `docs/derechos-imagenes.md`.
+No hay galería aparte ni sección de reseñas: las fotos están integradas con una función concreta
+(portada, cocina y llegada) y la ficha de Google sigue sin verificar. Ver
+`docs/derechos-imagenes.md`.
 
 ## Qué se puede cambiar y dónde
 
@@ -100,10 +117,22 @@ construir las URL de mapas): si cambia, hay que actualizar los dos sitios.
 
 - **Sin fuentes web**: Palatino/Georgia para titulares y Segoe UI/system sans para texto. Cero
   peticiones externas, cero parpadeo, ninguna licencia de terceros.
-- **Sin fotografías**: no había ninguna con permiso de uso. La identidad visual se resuelve con
-  tipografía, el plano del cruce (SVG en la portada y friso) y el rótulo dibujado.
+- **Fotografías reales, optimizadas**: los originales de `images/` se convierten a JPEG de 416–1000
+  px en `assets/images/` (≈423 KB en total). La fachada de la portada carga con la página
+  (`fetchpriority="high"`); el resto, en diferido. `width`/`height` reales para no provocar saltos.
+- **Favicon de marca**: el logotipo del rótulo del local —la flecha con zigzag y la n—,
+  vectorizado desde la foto de la fachada, con el verde y el tan de la propia web. El SVG es el
+  icono principal y hay un PNG de 32 px de respaldo. Las URL llevan `?v=20261022` para que el
+  navegador no reutilice el icono anterior. No se ha inventado ningún símbolo ni se ha usado una
+  tipografía parecida.
+- **La identidad sigue en el cruce**: el plano de la placa se retira de la portada —la foto ocupa
+  ese lugar—, pero el friso ilustrado mantiene el dibujo del cruce y del rótulo.
 - **La carta, a dos columnas** desde 56rem: estado y fuente a la izquierda, categorías a la derecha.
   En móvil y tablet vuelve a una columna.
+- **La carta visual reutiliza el sistema**: misma cabecera, botones, tokens, pie y `js/main.js`; solo
+  añade estructuras propias (entrada, pieza destacada, fichas). No hay CSS ni JavaScript duplicados,
+  y las seis fichas usan fotos del local con `alt` descriptivo. Sin precios, sin alérgenos, sin citas
+  de reseñas: los nombres se contrastaron con las reseñas públicas de Wanderlog (cachopo y nachos).
 - **`hidden` se respeta** con `[hidden]{display:none !important}`: ninguna regla de componente
   puede reabrir un bloque oculto (pasaba con `#menu-ready`).
 - **El foco no se pierde** al cargar el mapa: pasa a la región `#map`, no al `body`.
@@ -119,12 +148,14 @@ construir las URL de mapas): si cambia, hay que actualizar los dos sitios.
 
 ## Estado
 
-Ver `docs/pruebas.md`. En corto: **19/19** comprobaciones estáticas, 0 errores de consola, sin
+Ver `docs/pruebas.md`. En corto: **20/20** comprobaciones de la portada y **17/17** de la carta
+visual, 0 errores de consola, sin
 desbordamiento horizontal a 320/390/768/1024/1440 px (viewport fijado por CDP), mapa y menú móvil
-probados con ratón y con teclado, foco visible y conservado al cargar el mapa, contraste mínimo
-medido **4,70:1**. Pendiente: confirmar datos con el propietario, probar en móvil real, Firefox y
-Safari, y ejecutar axe/Lighthouse (no instalados). La demo publicada en GitHub Pages **sigue siendo
-la versión anterior**: no se ha desplegado nada.
+probados con teclado, foco conservado al cargar el mapa, las cinco fotos cargan y el contraste
+mínimo medido sigue en **4,70:1**. Pendiente: permiso escrito de las fotos, confirmar la carta y
+el resto de datos con el propietario, probar en móvil real, Firefox y Safari, y ejecutar
+axe/Lighthouse (no instalados). La demo publicada en GitHub Pages **sigue siendo la versión
+anterior**: no se ha desplegado nada.
 
 ## Skills utilizadas
 
@@ -138,10 +169,12 @@ Del repositorio `opencode-skills` (MIT), clonado en `opencode-skills/`:
 ## Antes de publicar
 
 1. Cerrar los datos de `docs/pendientes-propietario.md` (carta, horario, teléfono, WhatsApp,
-   ficha de Google, fotos, logo).
-2. Quitar el aviso de propuesta (`proposal.active = false`).
-3. Añadir aviso legal, datos del titular y política de privacidad.
-4. Decidir dominio y actualizar `canonical`, `og:url` y `og:image`. Quitar `noindex`.
-5. Repetir las pruebas en móvil real y en Firefox/Safari.
+   ficha de Google, permiso de las fotos y logo).
+2. Decidir qué pasa con la carta visual: publicarla tal cual como selección orientativa o
+   sustituirla por la carta real cuando el propietario la facilite.
+3. Quitar el aviso de propuesta (`proposal.active = false`).
+4. Añadir aviso legal, datos del titular y política de privacidad.
+5. Decidir dominio y actualizar `canonical`, `og:url` y `og:image`. Quitar `noindex`.
+6. Repetir las pruebas en móvil real y en Firefox/Safari.
 
 Nada de esto se ha hecho: la propuesta **no está publicada**.

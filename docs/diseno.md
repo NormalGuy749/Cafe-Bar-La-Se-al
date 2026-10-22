@@ -19,9 +19,9 @@ Palette:    Verde de persiana metálica (base oscura), crema de papel (fondo),
 Type:       Palatino/Book Antiqua (serif humanista instalada) para titulares;
             Segoe UI / system sans para interfaz y texto corrido.
             Sin fuentes web: cero peticiones externas, cero parpadeo, licencia del sistema.
-Memorable:  El hero es una "señal" física: placa verde con el nombre y un cruce de dos calles
-            dibujado con reglas, etiquetado Manzanedo × Roble. El nombre del bar ES la señal.
-Restraint:  Sin fotografías falsas, sin degradados, sin glassmorphism, sin tarjetas en rejilla,
+Memorable:  El hero es la fachada real del local, enmarcada sobre el verde, con el rótulo del bar.
+            El cruce de Manzanedo × Roble se mantiene dibujado en el friso.
+Restraint:  Sin fotos de stock, sin degradados, sin glassmorphism, sin tarjetas en rejilla,
             sin iconos decorativos, sin animaciones aparatosas, sin sombras difusas.
 ```
 
@@ -101,11 +101,11 @@ Una sola página, orden narrativo: **qué es → dónde y cuándo → qué se pu
 |---|---|---|---|
 | — | Aviso de propuesta | crema oscuro | Contexto: no es la web oficial |
 | A | Cabecera | crema | Marca tipográfica + nav + CTA |
-| B | Portada | verde | El momento memorable: la placa con el plano del cruce |
+| B | Portada | verde | El momento memorable: la fachada real, el nombre y las dos acciones |
 | C | Datos de un vistazo | blanco cálido | Dirección, horario publicado y teléfono en una pasada |
-| D | La carta | crema | Estado «pendiente», honesto y resuelto |
+| D | La carta | crema | Estado «pendiente», honesto, y tres fotografías de platos sin nombres |
 | E | Friso ilustrado | verde | El edificio y el cruce, dibujados en SVG |
-| F | Dónde estamos | crema | Dirección, mapa bajo demanda, horario, contacto y opiniones |
+| F | Dónde estamos | crema | Dirección, fachada, mapa bajo demanda, horario, contacto y opiniones |
 | G | Pie | verde | Marca, dirección, navegación y aviso de propuesta |
 
 **Ritmo vertical variable:** portada y «dónde estamos» respiran (`--space-2xl`/`--space-3xl`), los
@@ -152,6 +152,7 @@ cómo llegar o qué pedir*.
 | CTA cabecera | «Cómo llegar» → indicaciones de Google Maps |
 | Hero | «Cómo llegar» (primario) + «Ver la carta» (secundario con filete) |
 | Carta | Estado pendiente con categorías documentadas; sin platos ni precios |
+| Fotos de platos | Tres, con pie de sección que aclara que nombres y precios llegarán con la carta confirmada. Sin pies individuales ni nombres inventados; el `alt` describe lo que se ve |
 | Friso | SVG decorativo (`aria-hidden`), con pie que aclara que no es una fotografía. Por debajo de 48rem el dibujo se sustituye por el cruce escrito —«Calle Manzanedo × Calle Roble»—, porque a ese tamaño sus rótulos quedarían a 5–7 px |
 | Opiniones | Enlace a búsqueda de Google Maps + aviso de ficha no verificada |
 | Mapa | **No se carga al abrir**: botón «Cargar mapa» inyecta el iframe. Antes avisa de que Google recibirá la visita. Estados: reposo → cargando (`aria-busy`) → cargado / error. Al cargar, el foco pasa a la región `#map` (el botón que lo tenía desaparece con la fachada) |
@@ -183,15 +184,19 @@ sigue siendo legible: el menú es `<details>` y el mapa es un enlace.
 
 ## 7. Rendimiento
 
-Cero peticiones externas en la carga inicial: sin fuentes web, sin iconos, sin imágenes, sin
-analítica. El iframe de Maps es la única petición externa y solo si se pulsa «Cargar mapa».
+Sin fuentes web, sin librerías de iconos, sin analítica y sin peticiones externas distintas del mapa. La
+portada carga una única foto (109 KB, `fetchpriority="high"`); las otras cuatro (≈315 KB) van en
+diferido y solo se descargan al acercarse. El iframe de Maps sigue cargándose solo al pulsar
+«Cargar mapa».
 
-Medido: **54,5 KB sin comprimir** (HTML 16,0 + CSS 23,7 + JS 15,8 + favicon 0,3 KB) y **≈15,9 KB
-con gzip**. Presupuesto: HTML + CSS + JS propios < 60 KB sin comprimir.
+Medido: **59,3 KB de código sin comprimir** (HTML 17,9 + CSS 23,8 + JS 15,8 + favicons 1,8 KB) y
+**≈17,1 KB con gzip**; 423 KB de fotos en total. Presupuesto: código propio < 60 KB sin comprimir.
 
 ## 8. Lo que NO se hace (contención)
 
-- No se imita un logotipo: la marca es tipográfica y se declara provisional.
+- No se imita un logotipo ajeno: el único símbolo de marca es el logotipo del rótulo del local
+  (la flecha con zigzag y la n), vectorizado desde una fotografía. El resto de la identidad sigue
+  siendo tipográfica y se declara provisional.
 - No se usan fotos de Google Maps, redes o prensa.
 - No se usan imágenes generadas por IA simulando el local.
 - No hay valoraciones, estrellas, testimonios ni «los mejores».

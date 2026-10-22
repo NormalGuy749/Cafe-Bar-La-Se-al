@@ -55,7 +55,9 @@ check("Rutas locales de CSS, JS e imágenes existen", () => {
 
   if (!refs.length) problems.push("No se ha detectado ninguna ruta local");
   for (const ref of refs) {
-    if (!exists(ref)) problems.push(`No existe: ${ref}`);
+    // El query (?v=…) solo bustea caché; el archivo local es la ruta sin él.
+    const file = decodeURIComponent(ref.split(/[?#]/)[0]);
+    if (!exists(file)) problems.push(`No existe: ${ref}`);
   }
   return problems;
 });
@@ -263,6 +265,61 @@ check("El atributo hidden no queda anulado por una regla display", () => {
       if (rule && !/\[hidden\]\s*\{[^}]*display:\s*none/.test(css))
         problems.push(`.${cls} fija display y está marcado hidden sin protección [hidden]`);
     }
+  }
+  return problems;
+});
+
+check("Imágenes con alt, dimensiones reales y carga diferida", () => {
+  const problems = [];
+  const images = matchAll(/<img\b[^>]*>/g, html).map((m) => m[0]);
+  if (!images.length) problems.push("No hay imágenes: revisar la integración de fotos");
+
+  // Lee el tamaño real del archivo para comprobar que width/height declarados
+  // coinciden: si no, el navegador reserva un hueco equivocado (CLS).
+  const dimensions = (file) => {
+    const b = readFileSync(join(root, file));
+    if (b[0] === 0xff && b[1] === 0xd8) {
+      let i = 2;
+      while (i < b.length) {
+        if (b[i] !== 0xff) { i += 1; continue; }
+        const marker = b[i + 1];
+        if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+          return { width: b.readUInt16BE(i + 7), height: b.readUInt16BE(i + 5) };
+        }
+        i += 2 + b.readUInt16BE(i + 2);
+      }
+      return null;
+    }
+    if (b.toString("ascii", 1, 4) === "PNG") {
+      return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+    }
+    return null;
+  };
+
+  for (const tag of images) {
+    const src = (tag.match(/src="([^"]+)"/) || [])[1] || "";
+    const isHero = /class="hero__photo"/.test(tag);
+
+    if (!/\salt="[^"]{15,}"/.test(tag)) problems.push(`Sin alt descriptivo: ${src}`);
+    if (!/\swidth="\d+"/.test(tag) || !/\sheight="\d+"/.test(tag))
+      problems.push(`Sin width/height: ${src}`);
+    if (!/\sdecoding="async"/.test(tag)) problems.push(`Sin decoding async: ${src}`);
+    if (isHero && /\sloading="lazy"/.test(tag))
+      problems.push("La foto de portada no debe cargarse en diferido");
+    if (!isHero && !/\sloading="lazy"/.test(tag))
+      problems.push(`Foto fuera de portada sin loading lazy: ${src}`);
+
+    if (!exists(src)) {
+      problems.push(`No existe la imagen: ${src}`);
+      continue;
+    }
+    const real = dimensions(src);
+    const declaredW = Number((tag.match(/\swidth="(\d+)"/) || [])[1]);
+    const declaredH = Number((tag.match(/\sheight="(\d+)"/) || [])[1]);
+    if (real && (real.width !== declaredW || real.height !== declaredH))
+      problems.push(
+        `${src}: declarado ${declaredW}x${declaredH}, real ${real.width}x${real.height}`
+      );
   }
   return problems;
 });

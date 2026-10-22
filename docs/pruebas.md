@@ -1,9 +1,9 @@
 # Pruebas y revisión
 
-**Fecha:** 21 de octubre de 2026
+**Última revisión:** 22 de octubre de 2026 (fotografías reales integradas y favicon del logotipo).
 **Entorno:** Windows 11 · Node v24.15.0 · Google Chrome 155.0.8059.85 (headless, vía CDP) y Chromium del panel de vista previa.
 **Web probada:** archivos reales servidos en `http://127.0.0.1:8099/` con `node pruebas/serve.mjs`.
-**Estado del repositorio:** sin `.git` en esta carpeta de trabajo; no se ha hecho commit, push ni despliegue. La demo publicada en GitHub Pages **sigue siendo la versión anterior** (`main`, `247d75b`).
+**Estado del repositorio:** rama `main`; esta sesión no ha hecho commit, push ni despliegue. La demo publicada en GitHub Pages **sigue siendo la versión anterior**.
 
 > **Método.** No se ha probado la copia aplanada como si fuera la web. Todas las medidas de esta página salen de `index.html`, `css/styles.css`, `js/config.js` y `js/main.js` servidos por HTTP con sus rutas relativas. La copia `pruebas/render-check.html` se usa solo como vista de un archivo y su vigencia se comprueba automáticamente (§5).
 
@@ -13,9 +13,12 @@
 
 | Comprobación | Resultado |
 |---|---|
-| Comprobador estático (`node pruebas/check.mjs`) | **19/19** |
+| Comprobador estático (`node pruebas/check.mjs`) | **20/20** |
 | Sintaxis del JavaScript (`node --check`) | ✅ 2/2 archivos |
 | Carga de CSS, JS y favicon por HTTP | ✅ 200 con `content-type` correcto |
+| Favicon del logotipo: SVG válido, 16/32/48 px y petición real | ✅ en local; producción pendiente de publicar (§12) |
+| Fotografías por HTTP | ✅ 5/5 JPEG, 200, `image/jpeg` |
+| Dimensiones declaradas frente al archivo real | ✅ 5/5 coinciden |
 | Recurso inexistente | ✅ 404 |
 | Desbordamiento horizontal a 320 / 390 / 768 / 1024 / 1440 px | ✅ ninguno (`scrollWidth == innerWidth`) |
 | Un solo `h1`; jerarquía sin saltos | ✅ 1 `h1`, 3 `h2`, 2 `h3` |
@@ -37,7 +40,7 @@
 
 ```bash
 node pruebas/serve.mjs            # http://127.0.0.1:8099/
-node pruebas/check.mjs            # 19/19 comprobaciones superadas.
+node pruebas/check.mjs            # 20/20 comprobaciones superadas.
 node --check js/config.js && node --check js/main.js   # sin salida = correcto
 node pruebas/build-render-check.mjs                    # render-check.html generado
 node pruebas/capturas.mjs         # 9 capturas con viewport exacto (salen en docs/capturas/2026-10-21/)
@@ -46,21 +49,25 @@ node pruebas/capturas.mjs         # 9 capturas con viewport exacto (salen en doc
 Códigos HTTP comprobados con `curl`:
 
 ```
-/                      200 text/html; charset=utf-8 15992
-/css/styles.css        200 text/css; charset=utf-8 23702
-/js/config.js          200 text/javascript; charset=utf-8 4869
+/                      200 text/html; charset=utf-8 17911
+/css/styles.css        200 text/css; charset=utf-8 23844
+/js/config.js          200 text/javascript; charset=utf-8 4811
 /js/main.js            200 text/javascript; charset=utf-8 10973
-/assets/favicon.svg    200 image/svg+xml 288
+/assets/favicon.svg    200 image/svg+xml 1068
+/assets/favicon-32.png 200 image/png 723
 /no-existe.css         404
 ```
 
 El HTML servido coincidía byte a byte con `index.html` (mismo `md5`).
 
-Peso propio: **55.824 bytes sin comprimir** (16,0 + 23,7 + 4,9 + 11,0 + 0,3 KB), **≈ 15,9 KB gzip**. Cero peticiones externas en la carga inicial.
+Peso propio: **59.330 bytes sin comprimir** (17,9 + 23,8 + 4,8 + 11,0 + 1,0 + 0,7 KB), **≈ 17,1 KB gzip**, más **423 KB** de fotografías (109 KB en la portada y 313 KB en diferido). Cero peticiones externas distintas del mapa.
 
 ---
 
 ## 3. Medidas por ancho
+
+> Las alturas de la tabla siguiente corresponden a la versión **sin fotografías**. La revisión
+del 22/10 confirma de nuevo la ausencia de desbordamiento en los cinco anchos (§11).
 
 Viewport fijado con `Emulation.setDeviceMetricsOverride` (CDP), no con `--window-size`.
 
@@ -117,7 +124,8 @@ Un test que nunca falla no demuestra nada. Se hicieron dos mutaciones controlada
 2. `node pruebas/check.mjs` falló exactamente en las dos comprobaciones esperadas:
    `El atributo hidden no queda anulado por una regla display` (dos avisos) y
    `pruebas/render-check.html está generada desde los archivos actuales`.
-3. Se restauraron los archivos, se regeneró la copia y volvió a **19/19**.
+3. Se restauraron los archivos, se regeneró la copia y volvió a **19/19** (la cifra de aquella
+   sesión; tras añadir la comprobación de imágenes, hoy son 20).
 
 Comprobaciones añadidas en esta sesión: atributo `hidden`, conflicto `role="img"` + `aria-hidden`, frases visibles repetidas y vigencia de la copia por huella SHA-256 de las cuatro fuentes.
 
@@ -151,7 +159,8 @@ Se mantiene la separación de `docs/pendientes-propietario.md`:
 
 - **Confirmado por fuentes públicas:** nombre, categoría, municipio, código postal y el cruce Manzanedo–Roble.
 - **Publicado y sin confirmar por el local:** horario y teléfono, señalados como tales en la propia interfaz.
-- **No publicado:** carta, precios, alérgenos, fotos, WhatsApp, redes, reseñas, ficha de Google, número de portal, datos legales.
+- **No publicado:** carta, precios, alérgenos, WhatsApp, redes, reseñas, ficha de Google, número de portal, datos legales.
+- **Fotos:** integradas cinco, aportadas con el proyecto; el permiso escrito sigue pendiente.
 - **Cero datos inventados:** la comprobación prohíbe importes, `tel:`, enlaces sociales, estrellas y textos de relleno. El JSON-LD solo lleva nombre y dirección.
 
 ---
@@ -166,15 +175,164 @@ Se mantiene la separación de `docs/pendientes-propietario.md`:
 6. **Sin móvil real.** Viewports emulados a 320/390; no hay prueba en dispositivo físico (táctil, notch, barra del navegador).
 7. **Sin validador W3C.** El HTML se parsea sin errores de consola, pero no se ha pasado por el validador oficial.
 8. **Sin prueba de errores de red del mapa.** El camino de error está corregido por inspección; no se forzó un fallo.
-9. **La web publicada no está actualizada.** No se ha desplegado nada: GitHub Pages sigue sirviendo `247d75b`.
+9. **La web publicada no está actualizada.** No se ha desplegado nada: GitHub Pages sigue sirviendo `0ee1420`, con el favicon antiguo del cruce.
 
 ---
 
 ## 10. Qué falta para publicar
 
-1. Cerrar los datos de `docs/pendientes-propietario.md` (carta, precios, horario, teléfono, portal, WhatsApp, ficha de Google, fotos, logo).
-2. Añadir la galería cuando haya fotos con permiso escrito (ver `docs/derechos-imagenes.md`).
+1. Cerrar los datos de `docs/pendientes-propietario.md` (carta, precios, horario, teléfono, portal, WhatsApp, ficha de Google, logotipo).
+2. Documentar por escrito el permiso de las cinco fotografías usadas (ver `docs/derechos-imagenes.md`).
 3. Aviso legal, titular y política de privacidad.
 4. Dominio definitivo y actualización de `canonical`, `og:url` y `og:image`; retirar `noindex`.
 5. Quitar la franja de propuesta (`proposal.active = false`) solo con la aprobación del dueño.
 6. Repetir esta batería en móvil real y en Firefox/Safari.
+
+---
+
+## 11. Revisión del 22/10/2026 — fotografías reales
+
+**Qué se cambió:** la placa SVG de la portada se sustituye por la fachada real; se añaden tres
+fotos de platos a la sección de la carta y una segunda fachada a «Dónde estamos». No se toca el
+mapa, la navegación, los datos ni los enlaces. Los originales se conservan en `images/`; las
+versiones web están en `assets/images/`.
+
+### 11.1 Comprobaciones ejecutadas
+
+| Prueba | Resultado |
+|---|---|
+| `node pruebas/build-render-check.mjs` | ✅ copia generada; las fotos se incrustan para que la vista de un archivo no muestre huecos |
+| `node pruebas/check.mjs` | ✅ **20/20** |
+| `node --check js/config.js && node --check js/main.js` | ✅ sin salida |
+| `node pruebas/capturas.mjs …/2026-10-22` | ✅ **9/9** capturas, viewport exacto, sin desbordamiento |
+| HTTP de las cinco fotos | ✅ 200, `image/jpeg`, 43–150 KB |
+| `naturalWidth > 0` tras recorrer la página a 1440 y 390 | ✅ 5/5 |
+| `width`/`height` declarados frente al archivo | ✅ 5/5 (comprobación estática nueva) |
+| Consola y excepciones en sesión limpia | ✅ 0 errores |
+| Enlaces internos | ✅ 0 anclas rotas |
+| Encabezados | ✅ 1 `h1`, 3 `h2`, 3 `h3`, sin saltos |
+| Mapa bajo demanda | ✅ iframe inyectado, fachada retirada, `aria-busy` limpio, foco en `#map`, aviso «Mapa de Google cargado» |
+| Menú móvil (390) | ✅ abre, `Escape` cierra y devuelve el foco a `summary` |
+| Sin desbordamiento horizontal | ✅ 320 / 390 / 768 / 1024 / 1440 (`scrollWidth == innerWidth`) |
+| Altura de página | 1440: 4359 px · 390: 5380 px |
+| Carta sin datos inventados | ✅ 0 importes, 0 nombres de plato, 0 alérgenos; el comprobador sigue en verde |
+
+Un recorrido completo a 390 midió las secciones así: portada 744 px, datos 479, carta 1564 (con
+las fotos), friso 154, ubicación 1839, pie 489.
+
+### 11.2 Defectos encontrados y corregidos
+
+| # | Defecto | Cómo se detectó | Corrección |
+|---|---|---|---|
+| 13 | Dos fotos de platos tenían el `alt` de la otra: el pulpo se describía como jamón y viceversa | Revisión visual de la captura larga a 390 | Se regeneraron las versiones web desde los originales correctos y se ajustó `width`/`height` |
+| 14 | `.place` y `.details` estaban duplicados al final del CSS, con dos parches que repetían las mismas reglas | Lectura de la hoja | Se consolidaron en sus reglas originales con `minmax(0, 1fr)`; el resultado visual no cambia |
+| 15 | La copia `render-check.html` no podía resolver las fotos y habría mostrado cinco huecos rotos | Ejecución de `build-render-check.mjs` | Las imágenes se incrustan como `data:` en la copia generada |
+
+### 11.3 Revisión visual
+
+- Capturas de viewport en `docs/capturas/2026-10-22/` a 1440, 1024, 768, 390 y 320. Para revisar
+  las secciones completas se hicieron capturas de página entera a 1440 y 390, no conservadas en el
+  repositorio.
+- La foto de portada se recorta con `object-fit: cover` y `object-position: center 40%`; en móvil
+  mantiene el rótulo y el escaparate dentro del encuadre.
+- Los tres platos se recortan a 4:5 (cuadrado el primero en móvil) sin ampliar ninguna imagen por
+  encima de su resolución nativa.
+- La captura de página completa muestra el header fijo a media página: es un artefacto de
+  `captureBeyondViewport` con `scroll-behavior: smooth`, no aparece en las capturas de viewport.
+
+### 11.4 Limitaciones de esta revisión
+
+- Sigue sin ejecutarse axe ni Lighthouse (no instalados) y sin probar en móvil real, Firefox o
+  Safari. Solo Chromium.
+- El contenido del iframe de Google es de Google; se comprobó que resuelve a «Café-Bar La Señal»
+  en C. Manzanedo con C. Roble, pero no se audita su interfaz.
+- `prefers-reduced-motion` no se ha forzado en el navegador; la regla existe y no se ha tocado.
+- El permiso escrito de las fotos no se puede verificar desde el repositorio.
+
+---
+
+## 12. Favicon: el logotipo del rótulo (22/10/2026)
+
+### 12.1 Qué se ha vectorizado
+
+**Referencia:** `images/interior-exterior_del_bar/images (3).jpg` (640 × 480), la toma más frontal
+del rótulo. La n ocupa unos 57 × 167 px y la pieza superior, 73 × 51 px; el conjunto mide
+aproximadamente 73 × 217 px. Se descartó `cafebarlasealdonbenito.jpg`: la misma pieza es más
+pequeña y queda tapada por un coche.
+
+El propietario confirmó el 22/10/2026 que **la flecha y el zigzag superiores forman parte del
+logotipo**, no son un rótulo aparte. El favicon reproduce el conjunto, no solo la letra:
+
+- La pieza superior es una flecha que apunta arriba a la izquierda, con un tramo largo descendente
+  y tres crestas de zigzag. Va separada de la n por una junta de 1–2 px.
+- La n es una minúscula de palo largo: el palo izquierdo llega más arriba que el arco y el vértice
+  superior tiene un pequeño escalón.
+- Se conservan las proporciones: en el SVG el conjunto ocupa 20,3 × 59,6 px y la n, 15,3 × 45,8 px.
+  El trazo de la pieza superior se ha fijado en 2 px (frente a los ~1,5 px proporcionales) para que
+  no desaparezca a 16–32 px; la n mantiene su trazado.
+
+**Archivos:** `assets/favicon.svg` (64 × 64, 1.068 bytes: un `rect` verde redondeado, tres trazos
+para la flecha y el zigzag y un `path` para la n) y `assets/favicon-32.png` (32 × 32, RGBA,
+723 bytes, rasterizado del mismo SVG). `index.html` enlaza ambos con `?v=20261022`: primero el PNG
+de 32 px y después el SVG con `sizes="any"`. `pruebas/build-render-check.mjs` incrusta los dos en
+la copia de un solo archivo.
+
+**Hoja de tamaños:** `docs/capturas/2026-10-22/favicon-tamanos.png` (256 px, tamaños reales de
+48/32/16 y ampliaciones con píxeles reales).
+
+**Color:** el trazo usa `#B58056`, tomado de la foto a pleno sol (la toma en sombra da `#7E6A52`).
+El fondo usa `#243B30`, el verde del sitio. Contraste trazo/fondo: **3,55:1**, suficiente para un
+gráfico (≥ 3:1). No hay un color de marca confirmado: el hex es una aproximación documentada.
+
+### 12.2 Por qué no se veía
+
+No era una ruta mal escrita ni un problema de MIME. La página publicada seguía siendo el commit
+`0ee1420`:
+
+| Comprobación | Local | Publicado el 22/10/2026 |
+|---|---|---|
+| HTML | PNG y SVG con `?v=20261022` | solo `assets/favicon.svg`, sin PNG |
+| SVG | 1.068 bytes, flecha + zigzag + n | 288 bytes, el cruce provisional |
+| PNG de 32 | 723 bytes, 200 | **404** |
+| `Last-Modified` del SVG | el del archivo local | 21/10/2026 20:17 |
+| Caché | `no-store` en el servidor de pruebas | `Cache-Control: max-age=600` |
+
+Las rutas relativas sí resuelven bajo `/Cafe-Bar-La-Se-al/`: el SVG antiguo respondía 200 en
+`https://normalguy749.github.io/Cafe-Bar-La-Se-al/assets/favicon.svg`. El favicon nuevo **no estaba
+desplegado**; el navegador seguía viendo el icono anterior. Además, el PNG no existía en esa
+publicación.
+
+Para que el icono nuevo no quede retenido por la caché del navegador cuando se publique, las dos
+referencias llevan `?v=20261022`. La URL antigua sin query sigue sirviendo el SVG de 288 bytes
+hasta que se despliegue; la nueva es una entrada distinta.
+
+### 12.3 Pruebas realizadas
+
+| Prueba | Resultado |
+|---|---|
+| `DOMParser` sobre el SVG | ✅ sin `parsererror`; raíz `svg`, `viewBox="0 0 64 64"`, 1 `rect`, 4 `path` |
+| Recursos del SVG | ✅ solo rellenos locales; sin `image`, `href`, `url()` ni `@import` |
+| HTTP del SVG y del PNG en `/Cafe-Bar-La-Se-al/` | ✅ 200, `image/svg+xml` (1.068 B) y `image/png` (723 B) |
+| Petición real de Chromium | ✅ pide `assets/favicon.svg?v=20261022`; 200, `image/svg+xml`, sin fallos |
+| PNG de respaldo | ✅ 32 × 32, RGBA, esquinas transparentes, 978 px opacos |
+| 16 × 16 / 32 × 32 / 48 × 48 | ✅ renderizados sobre fondo oscuro; a 16 la n se identifica y la pieza superior es una línea fina; a 32 y 48 se lee el conjunto |
+| `file://` | ✅ también pide el SVG nuevo y responde 200 |
+| Consola y red | ✅ 0 errores, 0 recursos rotos |
+| `node pruebas/check.mjs` | ✅ 20/20 |
+| Copia de pruebas | ✅ regenerada con los dos favicons incrustados |
+
+### 12.4 Limitaciones y estado de producción
+
+- **La web publicada no está actualizada.** No se ha hecho commit, push ni despliegue: GitHub Pages
+  sigue sirviendo `0ee1420`, con el SVG de 288 bytes del cruce y sin el PNG. Por tanto, **el favicon
+  nuevo no se puede ver todavía en la URL publicada**; solo está verificado en local.
+- No se ha podido ver el icono en una barra de pestañas real (el navegador de pruebas es headless).
+  Tampoco se ha probado Firefox, Safari, iOS ni la caché de iconos de Windows.
+- La vectorización es manual desde una foto de 57 × 167 px para la n y 73 × 51 px para la pieza
+  superior; no hay vector original del propietario. Se han idealizado la perspectiva, la
+  verticalidad de los palos y el grosor constante.
+- A 16 px la pieza superior se reduce a una línea de menos de un píxel de grosor: la n domina y el
+  conjunto se intuye, pero no se lee con la claridad de 32/48. No se ha creado una versión
+  simplificada para 16 px porque sería un dibujo distinto del logotipo.
+- No se ha generado `.ico`: el SVG cubre los navegadores actuales y el PNG de 32 hace de respaldo.
+- El color sigue sin ser un dato de marca confirmado (ver §12.1).

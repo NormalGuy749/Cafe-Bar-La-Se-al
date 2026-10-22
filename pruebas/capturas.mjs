@@ -28,6 +28,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const baseUrl = process.argv[2] || "http://127.0.0.1:8099/";
 const outDir = process.argv[3] || join(root, "docs/capturas/2026-10-21");
+const only = process.argv[4] || "";
 
 const CHROME_CANDIDATES = [
   process.env.CHROME_PATH,
@@ -53,7 +54,13 @@ const shots = [
   { name: "movil-390-portada.png", width: 390, height: 844, hash: "" },
   { name: "movil-390-carta.png", width: 390, height: 844, hash: "#carta" },
   { name: "movil-390-ubicacion.png", width: 390, height: 844, hash: "#ubicacion" },
-  { name: "movil-320-portada.png", width: 320, height: 640, hash: "" }
+  { name: "movil-320-portada.png", width: 320, height: 640, hash: "" },
+  { name: "carta-1440.png", width: 1440, height: 900, hash: "carta.html" },
+  { name: "carta-1440-completa.png", width: 1440, height: 900, hash: "carta.html", full: true },
+  { name: "carta-768.png", width: 768, height: 1024, hash: "carta.html" },
+  { name: "carta-390.png", width: 390, height: 844, hash: "carta.html" },
+  { name: "carta-390-completa.png", width: 390, height: 844, hash: "carta.html", full: true },
+  { name: "carta-320.png", width: 320, height: 640, hash: "carta.html" }
 ];
 
 const profile = mkdtempSync(join(tmpdir(), "cb-capturas-"));
@@ -149,7 +156,34 @@ async function capture(shot) {
   // Margen para fuentes del sistema y para el salto de ancla.
   await wait(500);
 
-  const { data } = await send("Page.captureScreenshot", { format: "png" }, sessionId);
+  let screenshot = { format: "png" };
+  if (shot.full) {
+    // Las imágenes de la carta usan loading="lazy": hay que recorrer la
+    // página antes de capturarla entera o saldrían como huecos.
+    await send("Runtime.evaluate", {
+      expression: `(async () => {
+        document.documentElement.style.scrollBehavior = 'auto';
+        const h = document.documentElement.scrollHeight;
+        for (let y = 0; y < h; y += 420) {
+          window.scrollTo(0, y);
+          await new Promise((r) => setTimeout(r, 180));
+        }
+        window.scrollTo(0, h);
+        await new Promise((r) => setTimeout(r, 700));
+        window.scrollTo(0, 0);
+        await new Promise((r) => setTimeout(r, 300));
+      })()`,
+      awaitPromise: true
+    }, sessionId);
+    const metrics = await send("Page.getLayoutMetrics", {}, sessionId);
+    const { width, height } = metrics.cssContentSize;
+    screenshot = {
+      format: "png",
+      captureBeyondViewport: true,
+      clip: { x: 0, y: 0, width, height, scale: 1 }
+    };
+  }
+  const { data } = await send("Page.captureScreenshot", screenshot, sessionId);
   writeFileSync(join(outDir, shot.name), Buffer.from(data, "base64"));
 
   const check = await send("Runtime.evaluate", {
@@ -164,7 +198,7 @@ async function capture(shot) {
 mkdirSync(outDir, { recursive: true });
 let failures = 0;
 
-for (const shot of shots) {
+for (const shot of (only ? shots.filter((s) => s.name.includes(only)) : shots)) {
   try {
     const info = await capture(shot);
     const overflow = info.sw > info.w;

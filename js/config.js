@@ -93,14 +93,10 @@ window.LA_SENAL = {
   },
 
   /* ---------- Fotografías ----------
-     No hay ninguna foto del local con permiso de uso, así que la web
-     no tiene galería: no se muestran huecos vacíos ni imágenes de
-     otros bares. Cuando existan (ver docs/derechos-imagenes.md), se
-     añade una sección de galería con marcado propio. */
-  gallery: {
-    status: "pending", // "pending" | "ready"
-    items: []
-  },
+     Las fotos del local viven en assets/images/ (versiones optimizadas
+     de los originales de images/) y están maquetadas en index.html: la
+     fachada en la portada, otra toma de fachada en «Dónde estamos» y
+     tres platos en la sección de la carta. No hay galería aparte. */
 
   /* ---------- Mapa ----------
      El iframe NO se carga al abrir la página. Se inyecta solo si el

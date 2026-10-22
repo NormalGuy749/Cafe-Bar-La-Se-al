@@ -120,6 +120,30 @@
     }
   }
 
+  /* ---------- Llamada de la carta ----------
+     La carta visual usa el mismo número que la portada. El enlace existe
+     siempre que haya un número; el aviso distingue si está confirmado.
+     No se cambia el estado de config.phone. */
+  var menuCall = $("#menu-call");
+  var menuCallNote = $("#phone-caveat");
+
+  if (menuCall) {
+    if (phoneDial) {
+      menuCall.href = "tel:+" + phoneDial;
+      menuCall.setAttribute(
+        "aria-label",
+        "Llamar al " + phone.display + (phoneIsVerified ? "" : ". Número publicado, sin confirmar.")
+      );
+    } else {
+      menuCall.hidden = true;
+    }
+    if (menuCallNote && phone.display) {
+      menuCallNote.textContent = phone.display + (phoneIsVerified
+        ? " · número confirmado."
+        : " · número publicado, sin confirmar.");
+    }
+  }
+
   /* ---------- WhatsApp (solo si hay número confirmado) ---------- */
   var wa = CONFIG.whatsapp || {};
   var waSlot = $("#whatsapp-slot");

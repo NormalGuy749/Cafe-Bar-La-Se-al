@@ -12,8 +12,8 @@ Todo lo que la web **no** afirma porque no está confirmado, y lo que hace falta
 | **Teléfono** | Tres números publicados: 924 96 56 69 · 924 18 96 47 · 673 42 15 52 | Se muestra el primero como texto, **sin enlace de llamada** | Cuál es el correcto |
 | **WhatsApp** | Ninguno confirmado | Botón **oculto** | Número de WhatsApp, si lo usan |
 | **Ficha de Google** | No se localizó URL ni Place ID | El botón abre una **búsqueda** de Google Maps | La URL de la ficha (o reclamarla) |
-| **Fotografías** | Ninguna con permiso | No hay galería: ni huecos ni fotos ajenas | Fotos propias + permiso escrito |
-| **Logotipo** | Ninguno localizado | Marca tipográfica provisional | Archivo del logo, si existe |
+| **Fotografías** | Seis aportadas en `images/`; cinco integradas en la web | Portada, «Dónde estamos» y sección de la carta, sin nombres de platos | Permiso escrito y confirmar qué platos son si se quieren nombrar |
+| **Logotipo** | La flecha con zigzag y la n del rótulo de la fachada; el propietario confirmó el 22/10/2026 que la flecha y el zigzag forman parte de la marca | Vectorizado completo como favicon; el resto de la marca sigue provisional | Archivo original si existe; confirmar que es el logotipo oficial |
 | **Redes sociales** | Ningún perfil atribuible con seguridad | No se enlaza ninguna | Usuarios reales de Instagram/Facebook |
 | **Número de portal** | La dirección es un cruce, sin número | Se escribe «esquina con calle Roble» | Número y acceso principal (Manzanedo o Roble) |
 | **Nombre oficial** | «Café-Bar La Señal» / «Bar La Señal» | Se usa «Café-Bar La Señal» | Forma preferida |
@@ -45,19 +45,20 @@ Todo lo que la web **no** afirma porque no está confirmado, y lo que hace falta
 12. ¿Queréis que la web enlace directamente a las reseñas?
 
 **Fotos y marca**
-13. ¿Tenéis fotos del local (fachada, barra, interior, terraza)? ¿Las hizo alguien en concreto?
+13. ¿Las fotos de la fachada y de los platos que me pasaste las hiciste tú o alguien del local?
 14. ¿Me autorizas por escrito a usarlas en la web, también si la web se publica?
-15. ¿Existe un logotipo? ¿En qué archivo (PNG, SVG, AI)?
-16. ¿Qué colores o rótulo tiene el local? La paleta actual es una propuesta, no tiene por qué coincidir.
+15. ¿Quieres que nombre los platos de las fotos o los dejamos sin nombre hasta tener la carta?
+16. ¿Existe un archivo del logotipo (la flecha, el zigzag y la n)? ¿Me pasas el vector original si existe? Ya has confirmado que la flecha y el zigzag son parte de la marca.
+17. ¿Qué colores o rótulo tiene el local? La paleta actual es una propuesta, no tiene por qué coincidir.
 
 **Redes**
-17. ¿Tenéis Instagram o Facebook del bar? ¿Me pasáis el usuario exacto?
-18. ¿Queréis que la web los enlace?
+18. ¿Tenéis Instagram o Facebook del bar? ¿Me pasáis el usuario exacto?
+19. ¿Queréis que la web los enlace?
 
 **Decisión**
-19. ¿Apruebas esta propuesta como base para la web definitiva? ¿Qué cambiarías de lo que ves?
-20. ¿Quieres dominio propio (por ejemplo, un `.es` o `.com`) o prefieres empezar con una dirección gratuita?
-21. ¿Quién será el titular de la web a efectos legales (persona física o empresa)?
+20. ¿Apruebas esta propuesta como base para la web definitiva? ¿Qué cambiarías de lo que ves?
+21. ¿Quieres dominio propio (por ejemplo, un `.es` o `.com`) o prefieres empezar con una dirección gratuita?
+22. ¿Quién será el titular de la web a efectos legales (persona física o empresa)?
 
 ## 3. Antes de publicar: requisitos legales a revisar
 

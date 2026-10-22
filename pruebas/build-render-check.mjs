@@ -17,12 +17,13 @@ import { dirname, join } from "node:path";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => readFile(join(root, p), "utf8");
 
-const [html, css, config, main, favicon] = await Promise.all([
+const [html, css, config, main, favicon, faviconPng] = await Promise.all([
   read("index.html"),
   read("css/styles.css"),
   read("js/config.js"),
   read("js/main.js"),
-  read("assets/favicon.svg")
+  read("assets/favicon.svg"),
+  readFile(join(root, "assets/favicon-32.png"))
 ]);
 
 const warnings = [];
@@ -48,11 +49,20 @@ out = replaceOnce(
 // resolver rutas relativas en el previsualizador.
 out = replaceOnce(
   out,
-  /<link rel="icon" href="assets\/favicon\.svg" type="image\/svg\+xml">/,
+  /<link rel="icon" href="assets\/favicon\.svg(?:\?[^"]*)?" type="image\/svg\+xml" sizes="any">/,
   () =>
-    '<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,' +
+    '<link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,' +
     encodeURIComponent(favicon) + '">',
   "favicon"
+);
+
+out = replaceOnce(
+  out,
+  /<link rel="icon" href="assets\/favicon-32\.png(?:\?[^"]*)?" sizes="32x32" type="image\/png">/,
+  () =>
+    '<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,' +
+    faviconPng.toString("base64") + '">',
+  "favicon PNG"
 );
 
 out = replaceOnce(
@@ -68,6 +78,18 @@ out = replaceOnce(
   () => `<script>\n${main}\n</script>`,
   "js/main.js"
 );
+
+// Las fotos también se incrustan: la copia de un archivo suelto no puede
+// resolver assets/images/, y sin ellas la revisión visual dejaría cinco
+// huecos rotos que no existen en la web real.
+const imageRefs = new Set(
+  Array.from(out.matchAll(/src="(assets\/images\/[^"]+)"/g), (m) => m[1])
+);
+for (const ref of imageRefs) {
+  const mime = ref.endsWith(".png") ? "image/png" : "image/jpeg";
+  const data = await readFile(join(root, ref));
+  out = out.split(`src="${ref}"`).join(`src="data:${mime};base64,${data.toString("base64")}"`);
+}
 
 const leftovers = out.match(/(?:href|src)="(?:css|js|assets)\/[^"]*"/g) || [];
 if (leftovers.length) {
