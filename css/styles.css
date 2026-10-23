@@ -1,12 +1,5 @@
-/* ============================================================
-  Café-Bar La Señal — hoja de estilos
-  Dirección: bar de barrio con carácter.
-  Todos los valores salen del bloque de tokens. Nada suelto.
-   ============================================================ */
 
-/* ---------- 1. Tokens ---------- */
 :root{
-  /* Tipo — una ratio (1.250) */
   --font-display: "Palatino Linotype","Book Antiqua",Palatino,"Iowan Old Style",Georgia,serif;
   --font-text: "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
 
@@ -20,7 +13,6 @@
   --step-6:  3.815rem;
   --step-7:  4.768rem;
 
-  /* Espacio — base 4px */
   --space-3xs: 0.25rem;
   --space-2xs: 0.5rem;
   --space-xs:  0.75rem;
@@ -30,8 +22,7 @@
   --space-xl:  3rem;
   --space-2xl: 4.5rem;
   --space-3xl: 7rem;
-
-  /* Color */
+  
   --base:       #F5EBDD;
   --surface:    #FFFDF8;
   --paper:      #EFE4D3;
@@ -45,13 +36,11 @@
   --accent-ink: #8E4A28;
   --on-dark:    #F7F1E6;
 
-  /* Forma */
   --radius: 2px;
   --border: 1px solid var(--line);
   --shadow-near: 0 1px 2px rgba(40,39,34,.08);
   --shadow-far:  0 18px 40px -28px rgba(40,39,34,.45);
 
-  /* Movimiento */
   --dur-fast: 120ms;
   --dur: 220ms;
   --ease: cubic-bezier(.2,0,0,1);
@@ -59,7 +48,6 @@
   --wrap: 68rem;
 }
 
-/* ---------- 2. Base ---------- */
 *,
 *::before,
 *::after{ box-sizing: border-box; }
@@ -93,8 +81,6 @@ h1,h2,h3{
 p{ margin: 0; }
 img{ max-width: 100%; height: auto; display: block; }
 
-/* El atributo hidden debe ganar siempre a las reglas de componente:
-   .menu-ready y .mobile-nav__panel definen display y lo anularían. */
 [hidden]{ display: none !important; }
 ul,ol{ margin: 0; padding: 0; list-style: none; }
 address{ font-style: normal; }
@@ -127,7 +113,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   padding-inline: var(--space-m);
 }
 
-/* ---------- 3. Saltar al contenido ---------- */
 .skip-link{
   position: absolute;
   left: var(--space-s);
@@ -144,7 +129,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 }
 .skip-link:focus{ top: var(--space-s); }
 
-/* ---------- 4. Aviso de propuesta ---------- */
 .proposal{
   display: flex;
   align-items: center;
@@ -166,7 +150,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   flex: none;
 }
 
-/* ---------- 5. Botones y enlaces ---------- */
 .btn{
   display: inline-flex;
   align-items: center;
@@ -248,7 +231,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 }
 .link-inline:hover{ text-decoration-color: var(--ink); }
 
-/* ---------- 6. Cabecera ---------- */
 .site-header{
   position: sticky;
   top: 0;
@@ -303,7 +285,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 
 .site-header__actions{ display: flex; align-items: center; gap: var(--space-s); }
 
-/* Menú móvil: <details>, funciona sin JavaScript */
 .mobile-nav{ display: none; }
 .mobile-nav__toggle{
   display: inline-flex;
@@ -355,7 +336,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 }
 .mobile-nav__cta{ width: 100%; color: var(--on-dark); }
 
-/* ---------- 7. Eyebrow, notas, secciones ---------- */
 .eyebrow{
   margin-bottom: var(--space-xs);
   font-size: var(--step--1);
@@ -404,7 +384,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   white-space: nowrap;
 }
 
-/* ---------- 8. Portada ---------- */
 .hero{
   background: var(--green);
   color: var(--on-dark);
@@ -441,8 +420,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   margin-top: var(--space-l);
 }
 
-/* La portada enseña el local: la fachada real, enmarcada en un filete
-   crema como la placa que sustituye. Nada de sombras ni superposiciones. */
 .hero__media{
   width: min(100%, 30rem);
   margin: 0;
@@ -457,7 +434,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   object-position: center 40%;
 }
 
-/* ---------- 9. Datos de un vistazo ---------- */
 .facts{
   background: var(--surface);
   border-bottom: var(--border);
@@ -496,7 +472,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   max-width: 62ch;
 }
 
-/* ---------- 10. Carta ---------- */
 .menu-panel{
   border: var(--border);
   border-radius: var(--radius);
@@ -542,7 +517,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   max-width: 62ch;
 }
 
-/* Carta real, cuando exista */
 .menu-ready{ display: grid; gap: var(--space-xl); }
 .menu-cat__title{
   margin-bottom: var(--space-s);
@@ -560,7 +534,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 .menu-item__dots{ flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-.2em); }
 .menu-item__price{ font-variant-numeric: tabular-nums; font-weight: 600; }
 
-/* ---------- 10 bis. La cocina, en imágenes ---------- */
 .plates{ margin-top: var(--space-2xl); }
 .plates__head{
   display: flex;
@@ -587,8 +560,7 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   overflow: hidden;
   background: var(--paper);
 }
-/* En móvil la primera foto ocupa el ancho completo: evita tres
-   rectángulos altos seguidos y da una entrada a la sección. */
+
 .plate:first-child{
   grid-column: 1 / -1;
   aspect-ratio: 1 / 1;
@@ -600,7 +572,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   object-position: center;
 }
 
-/* ---------- 11. Friso ilustrado ---------- */
 .frieze-band{
   background: var(--green);
   padding-block: var(--space-xl) var(--space-l);
@@ -611,8 +582,7 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   width: 100%;
   height: auto;
 }
-/* El SVG se dibuja a escala 0,6 en tablet: los rótulos se dimensionan para
-   conservar ~13 px reales a 768 px de ancho. */
+
 .frieze__awning-text{
   fill: var(--green);
   font-family: var(--font-text);
@@ -636,11 +606,8 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   max-width: 56ch;
 }
 
-/* Banda móvil: dos calles y un cruce, sin dibujo. Se activa en @media. */
 .frieze__mobile{ display: none; }
 
-
-/* ---------- 13. Dónde estamos ---------- */
 .place{
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -690,7 +657,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   border: var(--border);
   border-radius: var(--radius);
   background-color: var(--surface);
-  /* Retícula tenue: el hueco del mapa se lee como plano, no como caja vacía. */
   background-image:
     linear-gradient(rgba(36,59,48,.055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(36,59,48,.055) 1px, transparent 1px);
@@ -761,7 +727,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   margin-bottom: var(--space-2xs);
 }
 
-/* ---------- 14. Pie ---------- */
 .site-footer{
   background: var(--green);
   color: var(--on-dark);
@@ -776,8 +741,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 .wordmark--footer .wordmark__kicker{ color: rgba(247,241,230,.62); }
 .wordmark--footer .wordmark__name{ color: var(--on-dark); }
 
-/* Cuatro enlaces, siempre en dos filas de dos: nada queda huérfano, como
-   pasaba al envolverlos en línea. En escritorio pasan a una sola columna. */
 .site-footer__nav ul{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -799,12 +762,10 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 .site-footer__legal{ display: grid; gap: var(--space-2xs); }
 .site-footer__base{ padding-top: var(--space-m); border-top: 1px solid rgba(247,241,230,.18); }
 
-/* ---------- 15. Responsive ---------- */
+/*Responsive*/
 @media (min-width: 40rem){
   .site-footer__nav ul{ grid-template-columns: 1fr; }
   .facts__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-l); }
-  /* Dos líneas reservadas: las notas de las tres columnas quedan alineadas
-     aunque un valor ocupe una línea y otro dos. */
   .fact__value{ min-height: 2.5em; }
   .menu-row{
     grid-template-columns: 2.5rem 1fr;
@@ -825,8 +786,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
 }
 
 @media (min-width: 56rem){
-  /* La carta, a dos columnas: el estado a la izquierda y las categorías a la
-     derecha. Evita la fila de 900 px con tres palabras sueltas. */
   .menu-panel{
     display: grid;
     grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -842,8 +801,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
     margin-bottom: 0;
     padding-right: var(--space-xl);
   }
-  /* Filete vertical: separa el estado de la carta de la lista, sin añadir
-     una segunda caja dentro de la tarjeta. */
   .menu-rows{
     grid-column: 2;
     grid-row: 1 / span 2;
@@ -874,9 +831,7 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   .nav-desktop{ display: none; }
   .mobile-nav{ display: block; }
   .site-header__actions .btn--small{ display: none; }
-}/* Por debajo de 48rem el dibujo mide menos de 240 px de ancho y sus rótulos
-   quedarían a 5-7 px. Se sustituye por el cruce escrito: mismo mensaje,
-   legible, y la banda no desaparece ni deja un hueco. */
+}
 @media (max-width: 47.99rem){
   .frieze-band{ padding-block: var(--space-l); }
   .frieze__art,
@@ -909,7 +864,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   .hero__actions{ flex-direction: column; align-items: stretch; }
 }
 
-/* ---------- 16. Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *,
@@ -921,10 +875,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
     scroll-behavior: auto !important;
   }
 }
-
-/* ---------- 17. Carta visual (subpágina) ---------- */
-/* La carta reutiliza tokens, cabecera, botones y pie. Solo añade
-   estructuras propias: entrada, pieza destacada, fichas y cierre. */
 
 .nav-desktop__list a[aria-current="page"],
 .mobile-nav__panel li a[aria-current="page"],
@@ -1050,8 +1000,6 @@ a{ color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offs
   object-fit: cover;
   object-position: center;
 }
-/* La foto de calamares es 4:3 y el plato queda a la izquierda; el recorte
-   de la ficha conserva el limón y la ración. */
 .menu-dish__media--calamares img{ object-position: 30% center; }
 .menu-dish__body h3{
   margin-bottom: var(--space-3xs);
