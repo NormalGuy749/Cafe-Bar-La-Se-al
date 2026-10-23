@@ -11,8 +11,6 @@
 <link rel="icon" href="assets/favicon.svg?v=20261022" type="image/svg+xml" sizes="any">
 <link rel="canonical" href="https://normalguy749.github.io/Cafe-Bar-La-Se-al/">
 
-<!-- Propuesta no oficial: no debe competir en buscadores con el negocio real.
-    Quitar esta línea cuando el propietario apruebe la web definitiva. -->
 <meta name="robots" content="noindex">
 
 <meta property="og:type" content="website">
@@ -76,7 +74,6 @@
 
 <main id="contenido">
 
-  <!-- ============ Portada ============ -->
   <section class="hero" id="inicio" aria-labelledby="hero-title">
     <div class="wrap hero__inner">
 
@@ -95,8 +92,6 @@
         </div>
       </div>
 
-      <!-- La fachada real, con el rótulo del local. La idea del cruce que da
-          nombre al bar se mantiene dibujada en el friso, más abajo. -->
       <figure class="hero__media">
         <img class="hero__photo"
              src="assets/images/fachada.jpg"
@@ -108,7 +103,6 @@
     </div>
   </section>
 
-  <!-- ============ Datos de un vistazo ============ -->
   <section class="facts" aria-labelledby="facts-title">
     <h2 class="sr-only" id="facts-title">Datos del establecimiento</h2>
     <div class="wrap facts__grid">
@@ -135,7 +129,6 @@
     </div>
   </section>
 
-  <!-- ============ Carta ============ -->
   <section class="section section--paper" id="carta" aria-labelledby="carta-title">
     <div class="wrap">
       <header class="section__head">
@@ -178,11 +171,8 @@
         </p>
       </div>
 
-      <!-- Se rellena desde config.js cuando menu.status = "ready" -->
       <div class="menu-ready" id="menu-ready" hidden></div>
 
-      <!-- Fotografías de platos cedidas para la propuesta. Sin nombres ni
-          precios: la carta sigue pendiente de confirmación. -->
       <div class="plates">
         <div class="plates__head">
           <h3 class="plates__title">De la cocina</h3>
@@ -212,7 +202,6 @@
     </div>
   </section>
 
-  <!-- ============ Friso ilustrado ============ -->
   <section class="frieze-band" aria-label="Ilustración de la esquina">
     <figure class="wrap frieze">
       <svg class="frieze__art" viewBox="0 0 1200 380" aria-hidden="true" focusable="false">
@@ -223,43 +212,33 @@
           </pattern>
         </defs>
 
-        <!-- calles -->
         <line x1="40" y1="332" x2="1160" y2="332" stroke="rgba(247,241,230,.45)" stroke-width="1.5"></line>
         <line x1="40" y1="332" x2="1160" y2="332" stroke="rgba(247,241,230,.35)" stroke-width="1.5" stroke-dasharray="18 16" stroke-dashoffset="9"></line>
         <line x1="884" y1="74" x2="884" y2="332" stroke="rgba(247,241,230,.45)" stroke-width="1.5"></line>
         <line x1="884" y1="74" x2="884" y2="332" stroke="rgba(247,241,230,.35)" stroke-width="1.5" stroke-dasharray="18 16"></line>
 
-        <!-- edificio -->
         <rect x="120" y="86" width="660" height="246" fill="none" stroke="rgba(247,241,230,.85)" stroke-width="2"></rect>
         <line x1="120" y1="86" x2="780" y2="86" stroke="rgba(247,241,230,.85)" stroke-width="2"></line>
 
-        <!-- rótulo sobre el toldo -->
         <rect x="300" y="104" width="300" height="56" fill="#F7F1E6"></rect>
         <text class="frieze__awning-text" x="450" y="140">CAFÉ-BAR LA SEÑAL</text>
 
-        <!-- toldo -->
         <rect x="120" y="186" width="660" height="44" fill="url(#awning)"></rect>
 
-        <!-- ventanas -->
         <g fill="none" stroke="rgba(247,241,230,.7)" stroke-width="1.5">
           <rect x="168" y="266" width="128" height="66"></rect>
           <rect x="332" y="266" width="128" height="66"></rect>
           <circle cx="622" cy="298" r="31"></circle>
         </g>
 
-        <!-- puerta -->
         <rect x="712" y="258" width="86" height="74" fill="none" stroke="rgba(247,241,230,.9)" stroke-width="2"></rect>
         <circle cx="788" cy="296" r="3" fill="rgba(247,241,230,.9)"></circle>
 
-        <!-- marca del cruce -->
         <circle cx="884" cy="332" r="6" fill="#F7F1E6"></circle>
-
-        <!-- nombres de calle -->
+          
         <text class="frieze__street" x="132" y="366">CALLE MANZANEDO</text>
         <text class="frieze__street frieze__street--v" x="922" y="86">CALLE ROBLE</text>
       </svg>
-      <!-- Versión móvil: el dibujo completo mide menos de 240 px de ancho y sus
-           rótulos no se leen. En su lugar, el cruce escrito. -->
       <p class="frieze__mobile" aria-hidden="true">
         <span>Calle Manzanedo</span>
         <span class="frieze__cross" aria-hidden="true">×</span>
@@ -272,7 +251,6 @@
     </figure>
   </section>
 
-  <!-- ============ Dónde estamos y contacto ============ -->
   <section class="section section--paper" id="ubicacion" aria-labelledby="ubicacion-title">
     <div class="wrap">
       <header class="section__head">
@@ -346,8 +324,6 @@
         <div class="details__block">
           <h3 class="details__title">Contacto</h3>
           <p class="contact__phone" id="phone-contact">924 96 56 69</p>
-          <!-- El botón de WhatsApp se crea aquí solo si config.whatsapp.status
-              es "verified". Mientras no lo esté, el hueco no ocupa espacio. -->
           <div id="whatsapp-slot"></div>
           <p class="note" id="phone-contact-note">
             Número publicado en directorios. Al no estar confirmado, no abre una llamada.
@@ -401,8 +377,6 @@
   </div>
 </footer>
 
-<!-- Datos estructurados: solo lo verificado. Sin teléfono, horario, precios,
-    coordenadas ni valoraciones. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
