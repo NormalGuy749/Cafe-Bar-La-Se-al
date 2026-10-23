@@ -1,13 +1,11 @@
-/* ============================================================
-   Genera pruebas/render-check.html a partir de los archivos reales.
+/*Genera pruebas/render-check.html a partir de los archivos reales.
 
    Motivo: el previsualizador de este entorno solo sirve un archivo
    suelto, sin resolver rutas relativas (css/styles.css, js/*.js).
    En vez de mantener a mano una copia paralela del HTML —que se
    desincroniza—, esta copia se reconstruye siempre desde index.html.
 
-   Uso:  node pruebas/build-render-check.mjs
-   ============================================================ */
+   Uso:  node pruebas/build-render-check.mjs*/
 
 import { readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
@@ -46,7 +44,6 @@ out = replaceOnce(
 );
 
 // El favicon se incrusta como data URI: la copia de pruebas no puede
-// resolver rutas relativas en el previsualizador.
 out = replaceOnce(
   out,
   /<link rel="icon" href="assets\/favicon\.svg(?:\?[^"]*)?" type="image\/svg\+xml" sizes="any">/,
@@ -80,8 +77,6 @@ out = replaceOnce(
 );
 
 // Las fotos también se incrustan: la copia de un archivo suelto no puede
-// resolver assets/images/, y sin ellas la revisión visual dejaría cinco
-// huecos rotos que no existen en la web real.
 const imageRefs = new Set(
   Array.from(out.matchAll(/src="(assets\/images\/[^"]+)"/g), (m) => m[1])
 );
@@ -96,8 +91,6 @@ if (leftovers.length) {
   for (const match of leftovers) warnings.push(`Ruta sin aplanar: ${match}`);
 }
 
-// Huella de las fuentes: pruebas/check.mjs la recalcula para avisar si la
-// copia se ha quedado atrás respecto a los archivos reales.
 const sources = {
   "index.html": html,
   "css/styles.css": css,
