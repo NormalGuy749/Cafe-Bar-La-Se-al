@@ -8,46 +8,6 @@ Landing page en español para un café-bar de barrio en Don Benito (Badajoz).
 > No se ha publicado, desplegado ni registrado ningún dominio, y no se ha contactado con el
 > negocio.
 
-## Ver la propuesta
-
-| Cómo | Qué hace |
-|---|---|
-| `node pruebas/serve.mjs` → <http://127.0.0.1:8099/> | La web real, con sus rutas relativas (`css/`, `js/`) |
-| La misma dirección + `/carta.html` | La carta visual, la subpágina provisional con los platos fotografiados |
-| Abrir `pruebas/render-check.html` | Copia de un solo archivo con CSS, JS y fotos incrustados: doble clic, sin servidor |
-| Abrir `index.html` directamente | **No sirve**: sin servidor, el navegador no carga `css/` ni `js/` |
-
-`pruebas/render-check.html` **se genera** desde `index.html`, `css/styles.css`, `js/config.js` y
-`js/main.js`; las fotos de `assets/images/` se incrustan como `data:` para que la copia no dependa
-de rutas relativas:
-
-```bash
-node pruebas/build-render-check.mjs   # regenera la copia de un solo archivo
-```
-
-No se edita a mano: si cambias la web, regenérala o la copia dejará de representarla.
-
-## Comprobaciones
-
-```bash
-node pruebas/check.mjs                # 20 comprobaciones de la portada (anclas, metadatos, imágenes, JSON-LD…)
-node pruebas/check-carta.mjs          # 17 comprobaciones de la carta visual
-node --check js/main.js js/config.js  # sintaxis del JavaScript
-node pruebas/capturas.mjs             # capturas con viewport exacto (requiere Chrome y el servidor)
-```
-
-`pruebas/check.mjs` usa solo Node (sin paquetes): rutas locales, anclas internas, ids duplicados,
-metadatos, jerarquía de encabezados, JSON-LD, enlaces y botones, recursos externos, marcadores de
-relleno, datos no verificados, aviso de propuesta, CSS y JavaScript. También comprueba que `hidden`
-no queda anulado por una regla `display`, que no hay `role="img"` con `aria-hidden`, que no se
-repite una misma frase visible y que `pruebas/render-check.html` no se ha quedado atrás (huella
-SHA-256 de las cuatro fuentes). Desde la integración de fotos verifica además que cada imagen
-existe, tiene `alt` descriptivo, `width`/`height` que coinciden con el archivo real y carga
-diferida salvo la de portada.
-
-`pruebas/capturas.mjs` fija el viewport por CDP: `chrome --headless --screenshot` no sirve por
-debajo de ~500 px en Windows (maqueta a un ancho mínimo y recorta la imagen).
-
 ## Estructura
 
 ```
@@ -145,36 +105,3 @@ construir las URL de mapas): si cambia, hay que actualizar los dos sitios.
 - **Canonical y `og:url`** apuntan a la URL real de GitHub Pages; `robots: noindex` mientras sea
   una propuesta no oficial.
 - **Sin analítica, sin cookies, sin formularios.**
-
-## Estado
-
-Ver `docs/pruebas.md`. En corto: **20/20** comprobaciones de la portada y **17/17** de la carta
-visual, 0 errores de consola, sin
-desbordamiento horizontal a 320/390/768/1024/1440 px (viewport fijado por CDP), mapa y menú móvil
-probados con teclado, foco conservado al cargar el mapa, las cinco fotos cargan y el contraste
-mínimo medido sigue en **4,70:1**. Pendiente: permiso escrito de las fotos, confirmar la carta y
-el resto de datos con el propietario, probar en móvil real, Firefox y Safari, y ejecutar
-axe/Lighthouse (no instalados). La demo publicada en GitHub Pages **sigue siendo la versión
-anterior**: no se ha desplegado nada.
-
-## Skills utilizadas
-
-Del repositorio `opencode-skills` (MIT), clonado en `opencode-skills/`:
-
-1. `designing-frontend-interfaces` — brief, tokens, jerarquía, anti-slop.
-2. `designing-user-experience` — estados, flujos, microcopy, táctil.
-3. `building-accessible-interfaces` — semántica, teclado, foco, contraste, movimiento.
-4. `reviewing-interface-quality` — auditoría con evidencia y correcciones.
-
-## Antes de publicar
-
-1. Cerrar los datos de `docs/pendientes-propietario.md` (carta, horario, teléfono, WhatsApp,
-   ficha de Google, permiso de las fotos y logo).
-2. Decidir qué pasa con la carta visual: publicarla tal cual como selección orientativa o
-   sustituirla por la carta real cuando el propietario la facilite.
-3. Quitar el aviso de propuesta (`proposal.active = false`).
-4. Añadir aviso legal, datos del titular y política de privacidad.
-5. Decidir dominio y actualizar `canonical`, `og:url` y `og:image`. Quitar `noindex`.
-6. Repetir las pruebas en móvil real y en Firefox/Safari.
-
-Nada de esto se ha hecho: la propuesta **no está publicada**.
