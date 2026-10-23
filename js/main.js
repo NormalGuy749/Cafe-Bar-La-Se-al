@@ -1,10 +1,3 @@
-/* ============================================================
-   Café-Bar La Señal — comportamiento
-   ------------------------------------------------------------
-   Sin dependencias. Todo se lee de js/config.js.
-   Si algo falla, la página sigue siendo legible: los textos están
-   en el HTML y los enlaces tienen un destino interno de reserva.
-   ============================================================ */
 (function () {
   "use strict";
 
@@ -16,9 +9,6 @@
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
   };
 
-  /* ---------- Utilidades ---------- */
-
-  // Deja el número en formato internacional sin signos, para tel: y wa.me
   function toDial(number) {
     var digits = String(number || "").replace(/[^\d+]/g, "");
     if (!digits) return "";
@@ -40,7 +30,6 @@
     link.rel = "noopener noreferrer";
   }
 
-  /* ---------- Enlaces a Google Maps ---------- */
   var maps = mapsBase();
 
   $$("[data-maps-link]").forEach(function (el) {
@@ -52,7 +41,6 @@
     externalise(el);
   });
 
-  /* ---------- Aviso de propuesta ---------- */
   var proposal = $(".proposal");
   if (proposal) {
     if (CONFIG.proposal && CONFIG.proposal.active === false) {
@@ -62,7 +50,6 @@
     }
   }
 
-  /* ---------- Reseñas ---------- */
   var reviewsLink = $("#reviews-link");
   var reviewsNote = $("#reviews-note");
   if (reviewsLink) {
@@ -83,7 +70,6 @@
     }
   }
 
-  /* ---------- Teléfono (dos puntos: franja de datos y contacto) ---------- */
   var phone = CONFIG.phone || {};
   var phoneDial = toDial(phone.display);
   var phoneIsVerified = phone.status === "verified" && !!phoneDial;
@@ -120,10 +106,6 @@
     }
   }
 
-  /* ---------- Llamada de la carta ----------
-     La carta visual usa el mismo número que la portada. El enlace existe
-     siempre que haya un número; el aviso distingue si está confirmado.
-     No se cambia el estado de config.phone. */
   var menuCall = $("#menu-call");
   var menuCallNote = $("#phone-caveat");
 
@@ -144,7 +126,6 @@
     }
   }
 
-  /* ---------- WhatsApp (solo si hay número confirmado) ---------- */
   var wa = CONFIG.whatsapp || {};
   var waSlot = $("#whatsapp-slot");
   var waDial = toDial(wa.number);
@@ -158,7 +139,6 @@
     waSlot.appendChild(waLink);
   }
 
-  /* ---------- Horario ---------- */
   var hours = CONFIG.hours || {};
   var hoursList = $("#hours-list");
   var hoursBadge = $("#hours-badge");
@@ -183,7 +163,6 @@
       : "Publicado · sin confirmar";
   }
 
-  /* ---------- Carta ---------- */
   var menu = CONFIG.menu || {};
   var menuPanel = $(".menu-panel");
   var menuReady = $("#menu-ready");
@@ -260,7 +239,6 @@
     if (menuPanel) menuPanel.hidden = true;
   }
 
-  /* ---------- Menú móvil ---------- */
   var mobileNav = $(".mobile-nav");
   if (mobileNav) {
     var summary = $("summary", mobileNav);
@@ -287,7 +265,6 @@
     else if (desktop.addListener) desktop.addListener(onBreakpoint);
   }
 
-  /* ---------- Mapa bajo demanda ---------- */
   var map = $("[data-map]");
   var mapButton = $("#map-load");
   var mapStatus = $("#map-status");
@@ -318,8 +295,6 @@
         if (facade) facade.remove();
         if (mapStatus) mapStatus.textContent = "Mapa de Google cargado.";
 
-        // El botón que tenía el foco desaparece con la fachada: sin esto el
-        // foco cae al body y quien navega con teclado pierde el sitio.
         map.setAttribute("tabindex", "-1");
         map.focus({ preventScroll: true });
       });
@@ -327,8 +302,7 @@
       frame.addEventListener("error", function () {
         map.classList.remove("is-busy");
         map.removeAttribute("aria-busy");
-        // El marco roto no se deja en la página: queda el aviso y el enlace
-        // para abrir el mapa en Google Maps.
+
         frame.remove();
         mapButton.disabled = false;
         mapButton.textContent = "Reintentar";
@@ -342,7 +316,6 @@
     });
   }
 
-  /* ---------- Año del pie ---------- */
   var year = $("#year");
   if (year) year.textContent = String(new Date().getFullYear());
 })();
